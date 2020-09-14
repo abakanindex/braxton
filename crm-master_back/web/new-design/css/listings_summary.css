@@ -1,0 +1,24 @@
+ul.short-summary {
+    list-style-type: none;
+}
+ul.short-summary li {
+    display: inline;
+    width: 53px;
+}
+.summary-label {
+    font-size: 11px;
+}
+.summary_row {
+    border-bottom: 1px solid #ddd;
+}
+.summary-column-xs {
+    height: 70px;
+    border-right: 1px solid #ddd;
+    padding-top: 15px;
+}
+.summary-column-xs:last-child {
+    border-right: 0;
+}
+.no-border-bottom {
+    border-bottom: none;
+}

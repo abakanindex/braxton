@@ -1,0 +1,190 @@
+li.username {
+    color: white;
+    font-size: 11px;
+}
+
+html {
+    background: #222d32;
+}
+
+.control-label {
+    color: #337ab7 !important;
+}
+
+.grid-view {
+    overflow: auto;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: 200px;
+    padding: 2px;
+}
+
+.avatar {
+    max-width: 100%;
+    height: 200px;
+
+}
+
+.wrapper {
+    height: auto;
+    position: relative;
+    overflow-x: unset !important;
+    overflow-y: unset !important;
+}
+
+.modal.modal-wide-60 .modal-dialog {
+    width: 60%;
+}
+
+.modal.modal-wide-70 .modal-dialog {
+    width: 60%;
+}
+
+.contacts-guests {
+    display: inline-block !important;
+    height: 300px;
+    max-height: 400px !important;
+    overflow: auto;
+    padding: 10px;
+}
+
+.modal {
+    overflow: auto !important;
+}
+
+.username {
+    font-size: 10px;
+    margin-top: 4%;
+}
+
+.report-color-1 {
+    background: #1FCE6E !important;
+}
+
+.report-color-2 {
+    background: #298ED2 !important;
+}
+
+.report-color-3 {
+    background: #F3AC5A !important;
+}
+
+.report-color-4 {
+    background: #9D6CE1 !important;
+}
+
+.report-color-5 {
+    background: #21C2C5 !important;
+}
+
+.report-color-6 {
+    background: #E3071C !important;
+}
+
+.report-color-7 {
+    background: #FFEA00 !important;
+}
+
+.report-color-8 {
+    background: #ED74BE !important;
+}
+
+.report-color-9 {
+    background: #A1887F !important;
+}
+
+.report-color-10 {
+    background: #B9BE29 !important;
+}
+
+.report-color-other {
+    background: #C7C7C7 !important;
+}
+
+.icon-blank {
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    margin-top: 5px;
+    display: block;
+}
+
+.report-daterange {
+    float: right;
+}
+
+.total-block {
+    float: left;
+    margin-left: 10px;
+}
+
+.date-dropbown {
+    float: left;
+    margin-left: 10px;
+}
+
+.report-daterange .title-txt {
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.report-daterange .report-dropdown {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.report-widget-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 100px;
+}
+
+.widget-hide {
+    cursor: pointer;
+}
+
+.widget-gridview-page {
+    min-width: 0px !important;
+    min-height: 0px !important;
+    margin: 2px !important;
+    padding: 0px !important;
+}
+
+.report-total-active {
+    border-color: #d2d6de !important;
+    border: 2px solid !important;
+}
+
+.distribution-pie-pdf {
+    width: 300px;
+    float: none;
+    margin: 0 auto;
+}
+
+.btn-default.btn-on.active{background-color: #5BB75B;color: white;}
+.btn-default.btn-off.active{background-color: #DA4F49;color: white;}
+
+.btn-default.btn-on-1.active{background-color: #006FFC;color: white;}
+.btn-default.btn-off-1.active{background-color: #DA4F49;color: white;}
+
+.btn-default.btn-on-2.active{background-color: #00D590;color: white;}
+.btn-default.btn-off-2.active{background-color: #A7A7A7;color: white;}
+
+.btn-default.btn-on-3.active{color: #5BB75B;font-weight:bolder;}
+.btn-default.btn-off-3.active{color: #DA4F49;font-weight:bolder;}
+
+.btn-default.btn-on-4.active{background-color: #006FFC;color: #5BB75B;}
+.btn-default.btn-off-4.active{background-color: #DA4F49;color: #DA4F49;}
+
+.design-switcher {
+    color: orange;
+    float: right;
+
+    position: relative;
+    left: -50%; /* or right 50% */
+    text-align: left;
+    margin-top: 12px;
+}

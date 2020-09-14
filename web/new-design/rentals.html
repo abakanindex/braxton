@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rentals</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/bootstrap.min.js'></script>
+</head>
+<body>
+<div class="wrap clearfix">
+    <!---     Top Menu       -->
+
+    <div class="top-menu">
+        <a class="logo" href="/">
+            <span class="logo-lg"><img src="img/logo-lg.png"></span>
+            <span class="logo-sm"><img src="img/logo-sm.png"></span>
+        </a>
+        <a href="#" id="sidebar-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+        <form action="#" method="get" class="form-inline search-form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="right-part">
+            <a href="#" id="notification" class="">
+                <i class="fa fa-bell-o" aria-hidden="true">
+                    <i id="notification-count">0</i>
+                </i>
+            </a>
+            <ul class="menu" id="notification-menu">
+                <li>You have <span class="notifications-menu-count">0</span> notifications</li>
+                <li><div id="notification-string"></div></li>
+                <li><a href="#">View all</a></li>
+                <li><a href="#" id="notification-seen-all">Mark all as seen</a></li>
+            </ul>
+
+            <a href="#" id="items" class=""><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <ul class="menu" id="items-menu">
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Company payments</a></li>
+            </ul>
+
+            <a href="#" id="settings" class=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
+            <ul class="menu" id="settings-menu">
+                <li><a href="#">Roles settings</a></li>
+                <li><a href="#">Users settings</a></li>
+                <li><a href="#">Company list</a></li>
+            </ul>
+
+            <div class="login">
+                <a href="#" id="login">
+                    <img src="img/user3-128x128.jpg" alt="..." class="img-circle">
+                    <p>Alexander Pierce</p><!--<span><i class="fa fa-angle-down" aria-hidden="true"></i></span>-->
+                </a>
+                <a href="#" class="button"><i class="fa fa-sign-out"></i></a>
+            </div>
+        </div>
+    </div><!---     /Top Menu       -->
+
+    <!---     Left Menu       -->
+    <div id="left-menu">
+        <ul class="sidebar-menu">
+            <li><a href="/leads/index"><i class="fa fa-filter"></i>  <span>Leads</span></a></li>
+            <li><a href="/contacts/index"><i class="fa fa-address-book-o"></i>  <span>Contacts</span></a></li>
+            <li><a href="/sales/index"><i class="fa fa-pie-chart"></i>  <span>Sales</span></a></li>
+            <li><a href="/rentals/index"><i class="icon-key-outline"></i>  <span>Rentals</span></a></li>
+            <li><a href="/calendar/main/index"><i class="fa fa-calendar"></i>  <span>Calendar</span></a></li>
+            <li><a href="/commercial-sales/index"><i class="fa fa-tag"></i>  <span>Commercial Sales</span></a></li>
+            <li><a href="/commercial-rentals/index"><i class="fa fa-building-o"></i>  <span>Commercial Rentals</span></a></li>
+            <!--      <li><a href="/import_export/import/index"><i class="fa fa-cloud-upload"></i>  <span>Import</span></a></li> -->
+            <li><a href="/reports/main/dashboard"><i class="fa fa-area-chart"></i>  <span>Reports</span></a></li>
+            <li><a href="/task-manager/index"><i class="fa fa-user-o"></i>  <span>Task Manager</span></a></li>
+            <li><a href="/emails/index"><i class="fa fa-envelope-o"></i>  <span>Emails </span></a></li>
+            <li><a href="/reminder/index"><i class="fa fa-bell"></i>  <span>My Reminders </span></a></li>
+            <li><a href="/reminder/personal-assistant"><i class="fa fa-list-alt"></i>  <span>Personal Assistant </span></a></li>
+        </ul>
+    </div><!---     /Left Menu       -->
+
+    <!---     Content       -->
+    <div id="content" class="container-fluid clearfix">
+
+        <!--    Top Rentals Block     -->
+        <div class="container-fluid top-rentals-content clearfix">
+            <div class="head-rentals-property container-fluid">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Rentals</li>
+                </ul>
+                <h2> Rentals</h2>
+                <ul class="list-inline container-fluid">
+                    <li class=""><a id="add-new-element" class="btn green-button" type="button" href="#"><i class="fa fa-plus-circle"></i>New Listing</a></li>
+                    <li class=""><a id="edit-element" class="btn red-button" type="button" href="#"><i class="fa fa-pencil-square-o"></i>Edit Listing</a></li>
+                    <li class=""><a id="save-edit-element" class="btn green-button hidden" type="button" href="#"><i class="fa fa-check-circle"></i>Save</a></li>
+                    <li class=""><a id="cancel-edit-element" class="btn gray-button hidden" type="button" href="#"><i class="fa fa-times-circle"></i>Cancel</a></li>
+                    <li class="pull-right"><a class="btn green-button" type="button" href="#"><i class="fa fa-dot-circle-o"></i>Match Leads</a></li>
+                    <li class="pull-right"><a class="btn red-button" type="button" href="#"><i class="fa fa-eye"></i>Preview Listing</a></li>
+                </ul>
+            </div>
+
+            <div class="container-fluid content-rentals-property">
+                <form class="form-horizontal">
+                    <div class="container-fluid rentals-left-block col-md-3"><!-- Left part-->
+
+                        <div class="content-left-block"><!--Property Address & Detalis-->
+                            <h3>Property Details</h3>
+                            <div class="property-list">
+                                <div class="form-group">
+                                    <label for="inputAssigned" class="col-sm-6 control-label">Assigned To</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputAssigned">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputRef" class="col-sm-6 control-label">Ref</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputRef" placeholder="Ref" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCategory" class="col-sm-6 control-label">Category</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputCategory">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputBeds" class="col-sm-6 control-label">Beds</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputBeds">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputBaths" class="col-sm-6 control-label">Baths</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputBaths">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmirate" class="col-sm-6 control-label">Emirate</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputEmirate">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputRERA" class="col-sm-6 control-label">RERA Permit No.</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputRERA" placeholder="RERA Permit No." disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputLocation" class="col-sm-6 control-label">Location</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputLocation">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputSub-location" class="col-sm-6 control-label">Sub-location</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputSub-location">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputUnit" class="col-sm-6 control-label">Unit No.</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputUnit" placeholder="Unit No.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputType" class="col-sm-6 control-label">Type</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputType" placeholder="Type">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputStreet" class="col-sm-6 control-label">Street No.</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputStreet" placeholder="Street No.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputFloor" class="col-sm-6 control-label">Floor</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputFloor" placeholder="Floor">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputBuilt-up" class="col-sm-6 control-label">Built-up area</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputBuilt-up" placeholder="Built-up area">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPlot" class="col-sm-6 control-label">Plot area</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputPlot" placeholder="Plot area">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputView" class="col-sm-6 control-label">View</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputView" placeholder="View">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputFurnished" class="col-sm-6 control-label">Furnished</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputFurnished">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputParking" class="col-sm-6 control-label">Parking</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputParking" placeholder="Parking">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPriceAED" class="col-sm-6 control-label">Price (AED)</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputPriceAED" placeholder="Price (AED)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPrice" class="col-sm-6 control-label">Price /</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputPrice" placeholder="Price /" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputFrequency" class="col-sm-6 control-label">Frequency</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputFrequency">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCheques" class="col-sm-6 control-label">Cheques</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="inputCheques">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCommission" class="col-sm-6 control-label">Commission</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputCommission" placeholder="Commission">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDeposit" class="col-sm-6 control-label">Deposit</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputDeposit" placeholder="Deposit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /Property Address & Detalis-->
+
+                    </div><!-- /Left part-->
+                    <div class="container-fluid col-md-6"><!-- Middle part-->
+                        <div class="row big-column-height">
+
+                            <div class="col-md-6 rentals-big-block"><!-- Owner -->
+                                <h3>Owner</h3>
+                                <div class="owner-head">
+                                    <img alt="user image" class="owner-image img-circle " src="img/user3-128x128.jpg">
+                                    <div class="owner-name">
+                                        <h4>Penders Guy</h4>
+                                        <p>Owner</p>
+                                    </div>
+                                </div>
+                                <div class="owner-property property-list">
+                                    <p><i class="fa fa-mobile"></i>+32 474493268</p>
+                                    <p><i class="fa fa-phone"></i>+97 502878964</p>
+                                    <p><i class="fa fa-envelope"></i>info@coreinvest.be</p>
+                                </div>
+                            </div><!--/Owner-->
+
+                            <div class="col-md-6 rentals-big-block"><!--Marketing & Media-->
+                                <h3>Marketing & Media</h3>
+                                <div id="media-tab">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a  href="#media1" data-toggle="tab">Photos</a></li>
+                                        <li><a href="#media2" data-toggle="tab">Plans</a></li>
+                                        <li><a href="#media3" data-toggle="tab">Other</a></li>
+                                    </ul>
+                                    <div class="property-list">
+                                        <div class="tab-content ">
+                                            <div class="tab-pane active" id="media1">
+                                                <div id="img-carousel1" class="carousel slide" data-interval="3000" data-ride="carousel">
+                                                    <!-- Carousel indicators -->
+                                                    <ol class="carousel-indicators">
+                                                        <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#myCarousel1" data-slide-to="1"></li>
+                                                        <li data-target="#myCarousel1" data-slide-to="2"></li>
+                                                    </ol>
+                                                    <!-- Wrapper for carousel items -->
+                                                    <div class="carousel-inner">
+                                                        <div class="active item">
+                                                            <img src="img/logo-lg.png" alt="First Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/logo-sm.png" alt="Second Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/user3-128x128.jpg" alt="Third Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Carousel controls -->
+                                                    <a class="carousel-control left" href="#img-carousel1" data-slide="prev">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </a>
+                                                    <a class="carousel-control right" href="#img-carousel1" data-slide="next">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                <a class="view-more" href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="tab-pane" id="media2">
+                                                <div id="img-carousel2" class="carousel slide" data-interval="3000" data-ride="carousel">
+                                                    <!-- Carousel indicators -->
+                                                    <ol class="carousel-indicators">
+                                                        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#myCarousel2" data-slide-to="1"></li>
+                                                        <li data-target="#myCarousel2" data-slide-to="2"></li>
+                                                    </ol>
+                                                    <!-- Wrapper for carousel items -->
+                                                    <div class="carousel-inner">
+                                                        <div class="active item">
+                                                            <img src="img/logo-lg.png" alt="First Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/logo-sm.png" alt="Second Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/user3-128x128.jpg" alt="Third Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Carousel controls -->
+                                                    <a class="carousel-control left" href="#img-carousel2" data-slide="prev">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </a>
+                                                    <a class="carousel-control right" href="#img-carousel2" data-slide="next">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                <a class="view-more" href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="tab-pane" id="media3">
+                                                <div id="img-carousel3" class="carousel slide" data-interval="3000" data-ride="carousel">
+                                                    <!-- Carousel indicators -->
+                                                    <ol class="carousel-indicators">
+                                                        <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#myCarousel3" data-slide-to="1"></li>
+                                                        <li data-target="#myCarousel3" data-slide-to="2"></li>
+                                                    </ol>
+                                                    <!-- Wrapper for carousel items -->
+                                                    <div class="carousel-inner">
+                                                        <div class="active item">
+                                                            <img src="img/logo-lg.png" alt="First Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/logo-sm.png" alt="Second Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <img src="img/user3-128x128.jpg" alt="Third Slide">
+                                                            <div class="carousel-caption">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Carousel controls -->
+                                                    <a class="carousel-control left" href="#img-carousel3" data-slide="prev">
+                                                        <i class="fa fa-angle-left"></i>
+                                                    </a>
+                                                    <a class="carousel-control right" href="#img-carousel3" data-slide="next">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                <a class="view-more" href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--/Marketing & Media-->
+
+
+                        </div>
+                        <div class="row small-column-height">
+
+
+                            <div class="col-md-6 rentals-small-block"><!--Additional Information-->
+                                <h3>Additional Information</h3>
+                                <div class="property-list">
+                                    <div class="form-group">
+                                        <label for="inputPropertyStatus" class="col-sm-6 control-label">Assigned To</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputPropertyStatus">
+                                                <option>Select</option>
+                                                <option>Available</option>
+                                                <option>Blocked</option>
+                                                <option>Pending</option>
+                                                <option>Renewed</option>
+                                                <option>Rented</option>
+                                                <option>Reserved</option>
+                                                <option>Upcoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputSourceOflisting" class="col-sm-6 control-label">Source of listing</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputSourceOflisting">
+                                                <option>Source 1</option>
+                                                <option>Source 2</option>
+                                                <option>Source 3</option>
+                                                <option>Source 4</option>
+                                                <option>Source 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputFeatured" class="col-sm-6 control-label">Featured</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputFeatured">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputDEWANumber" class="col-sm-6 control-label">DEWA Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="inputDEWANumber" placeholder="DEWA Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputSTR" class="col-sm-6 control-label">STR #</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="inputSTR" placeholder="STR #">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputNextAvailable" class="col-sm-6 control-label">Next available</label>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control" id="inputNextAvailable" placeholder="STR #">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputRemind" class="col-sm-6 control-label">Remind</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputRemind">
+                                                <option>Never</option>
+                                                <option>1 day</option>
+                                                <option>1 week</option>
+                                                <option>2 weeks</option>
+                                                <option>10 weeks</option>
+                                                <option>1 month</option>
+                                                <option>2 months</option>
+                                                <option>3 months</option>
+                                                <option>4 months</option>
+                                                <option>6 months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputKeyLocation" class="col-sm-6 control-label">Key Location</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="inputKeyLocation" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPropertyTenanted" class="col-sm-6 control-label">Property Tenanted?</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputPropertyTenanted">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputRentedAt" class="col-sm-6 control-label">Rented at</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="inputRentedAt" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputRentedUntil" class="col-sm-6 control-label">Rented until</label>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control" id="inputRentedUntil" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputMaintenanceFee" class="col-sm-6 control-label">Maintenance Fee</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="inputMaintenanceFee" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputManaged" class="col-sm-6 control-label">Managed</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputManaged">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputExclusive" class="col-sm-6 control-label">Exclusive</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputExclusive">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputInvite" class="col-sm-6 control-label">Invite</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputInvite">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPOA" class="col-sm-6 control-label">POA</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="inputPOA">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /Additional Information-->
+
+                            <div class="col-md-6 rentals-small-block"><!-- Information check-->
+                                <div id="portal-tab" >
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a  href="#portal1" data-toggle="tab">Portals</a></li>
+                                        <li><a href="#portal2" data-toggle="tab">Features</a></li>
+                                        <li><a href="#portal3" data-toggle="tab">Neighbourhood</a></li>
+                                    </ul>
+                                    <div class="property-list">
+                                        <div class="tab-content ">
+                                            <div class="tab-pane active" id="portal1">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Portal 1
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Portal 2
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Portal 3
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Portal 4
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Portal 5
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="portal2">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Feature 1
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Feature 2
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Feature 3
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Feature 4
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Feature 5
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="portal3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Neighbourhood 1
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Neighbourhood 2
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Neighbourhood 3
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Neighbourhood 4
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Neighbourhood 5
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /Information check-->
+
+                        </div>
+
+                    </div><!-- /Middle part-->
+                </form>
+                <div class="container-fluid col-md-3 notes-block"><!-- Right part-->
+                    <div id="notes-tab" >
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a  href="#notes" data-toggle="tab">Notes</a></li>
+                            <li><a href="#viewings" data-toggle="tab">Viewings</a></li>
+                            <li><a href="#documents" data-toggle="tab">Documents</a></li>
+                            <li><a href="#history" data-toggle="tab">History</a></li>
+                        </ul>
+                        <div class="property-list">
+                            <div class="tab-content ">
+                                <div class="tab-pane active" id="notes">
+                                    <div class="tab-header">
+                                        <h4>Put Note</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form id="notes-form" class="form clearfix">
+                                            <div class="form-group">
+                                                <textarea rows="4" class="form-control" id="note" placeholder=""></textarea>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add your note</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="viewings">
+                                    <div class="tab-header">
+                                        <h4>Put Viewing</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form id="viewings-form" class="form-horizontal clearfix">
+                                            <div class="form-group">
+                                                <label for="viewingsListing" class="col-sm-5 control-label">Listing</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsListing">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsDate" class="col-sm-5 control-label">Date</label>
+                                                <div class="col-sm-7">
+                                                    <input type="date" class="form-control" id="viewingsDate" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsTime" class="col-sm-5 control-label">Time</label>
+                                                <div class="col-sm-7">
+                                                    <input type="time" class="form-control" id="viewingsTime" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsAgent" class="col-sm-5 control-label">Agent</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsAgent">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsStatus" class="col-sm-5 control-label">Status</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsStatus">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsName" class="col-sm-5 control-label">Client Name</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control" id="viewingsName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsRequest" class="col-sm-5 control-label">Request</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsRequest">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsNote" class="col-sm-5 control-label">Note</label>
+                                                <div class="col-sm-7">
+                                                    <textarea rows="2" class="form-control" id="viewingsNote" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Viewing</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul class="viewings-list">
+                                            <li>
+                                                <div>
+                                                    <p><span>Date: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="documents">
+                                    <div class="tab-header clearfix">
+                                        <h4>Put Document</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form >
+                                            <div class="form-group">
+                                                <label for="documentsFile" class=" control-label">Document</label>
+                                                <div class="">
+                                                    <input type="file" class="form-control" id="documentsFile" placeholder="">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Document</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>Document 1</li>
+                                            <li>Document 2</li>
+                                            <li>Document 3</li>
+                                            <li>Document 4</li>
+                                            <li>Document 5</li>
+                                            <li>Document 6</li>
+                                            <li>Document 7</li>
+                                            <li>Document 8</li>
+                                            <li>Document 9</li>
+                                            <li>Document 10</li>
+                                            <li>Document 11</li>
+                                            <li>Document 12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="history">
+                                    <div class="tab-header">
+                                        <h4>History List</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>History 1</li>
+                                            <li>History 2</li>
+                                            <li>History 3</li>
+                                            <li>History 4</li>
+                                            <li>History 5</li>
+                                            <li>History 6</li>
+                                            <li>History 7</li>
+                                            <li>History 8</li>
+                                            <li>History 9</li>
+                                            <li>History 10</li>
+                                            <li>History 11</li>
+                                            <li>History12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /Right part-->
+
+
+        </div><!--    /Top Rentals Block      -->
+
+
+
+
+
+    </div><!---     Content       -->
+        <!--    Bottom Rentals Block      -->
+        <div class="container-fluid  bottom-rentals-content clearfix">
+            <div id="listings-tab" >
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a  href="#current-listings" data-toggle="tab">Current Listings</a>
+                    </li>
+                    <li><a href="#archived-listings" data-toggle="tab">Archived Listings<span class="badge">42</span></a>
+                    </li>
+                    <li><a href="#pending-listings" data-toggle="tab">Pending Listings</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content ">
+                    <div class="tab-pane active" id="current-listings">
+                        <div class="pane-header container-fluid clearfix">
+                            <!--<form class="form-horizontal" id="filterBlock">
+                                <div>
+
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterAgentListings" class="control-label col-sm-5">Agent Listings</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterAgentListings">
+                                                <option>Agent 1</option>
+                                                <option>Agent 2</option>
+                                                <option>Agent 3</option>
+                                                <option>Agent 4</option>
+                                                <option>Agent 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterCategoryDist" class="control-label col-sm-5">Category Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterCategoryDist">
+                                                <option>Category 1</option>
+                                                <option>Category 2</option>
+                                                <option>Category 3</option>
+                                                <option>Category 4</option>
+                                                <option>Category 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterStatusDist" class="control-label col-sm-5">Status Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterStatusDist">
+                                                <option>Status 1</option>
+                                                <option>Status 2</option>
+                                                <option>Status 3</option>
+                                                <option>Status 4</option>
+                                                <option>Status 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterPriceRange" class="control-label col-sm-5">Price Range</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterPriceRange" type="text" class="span2 " value="" style="width: 100%;" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                                            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" rel="stylesheet">
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+                                            <script>var slider = new Slider('#filterPriceRange', {});</script>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterLastUpdated" class="control-label col-sm-5">Last Updated</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterLastUpdated" class="form-control" type="date">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterTopLocations" class="control-label col-sm-5">Top Locations</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterTopLocations">
+                                                <option>Top Locations 1</option>
+                                                <option>Top Locations 2</option>
+                                                <option>Top Locations 3</option>
+                                                <option>Top Locations 4</option>
+                                                <option>Top Locations 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>-->
+                        </div>
+                        <div id="customizing-block" class="container-fluid clearfix">
+                            <div class="button-block first-block">
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-check-circle"></i> Published</a>
+                                    <a class="btn red-button" href="#"><i class="fa fa-times-circle"></i> Unpublished</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-cloud-download"></i> Share Options</a>
+                                    <a class="btn" href="#"><i class="fa fa-search"></i> Advanced Search</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-mobile"></i> Send SMS</a>
+                                    <a class="btn" href="#"><i class="fa fa-th-list"></i> Bulk Update</a>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="button-block second-block pull-right">
+                                <a class="btn green-button" href="#">Actions<i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">View <i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">Columns<i class="fa fa-angle-down"></i> </a>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- BIG listings Table-->
+                        <div style="overflow-x: auto; padding-right: 0; padding-left: 0;" class=" container-fluid clearfix">
+                            <table id="listings_row" class="table table-bordered" align="center" >
+                                <thead align="left" class="header-table">
+                                <tr role="row">
+                                    <th><input style="width:15px; margin-right:-10px;" onclick="toggleChecked(this.checked)" id="check_all_checkboxes" value="" type="checkbox"></th>
+                                    <th><div style="min-width: 8px;"></div></th>
+                                    <th><div title="Status"></div></th>
+                                    <th><div title="Managed">M</div></th>
+                                    <th><div title="Exclusive">E</div></th>
+                                    <th><div title="Shared">S</div></th>
+                                    <th><div>Ref</div></th>
+                                    <th><div>Unit</div></th>
+                                    <th><div>Category</div></th>
+                                    <th><div>Emirate</div></th>
+                                    <th><div>Location</div></th>
+                                    <th><div>Sub-location</div></th>
+                                    <th><div>Beds</div></th>
+                                    <th><div>BUA</div></th>
+                                    <th><div>Price</div></th>
+                                    <th><div>Agent</div></th>
+                                    <th><div>Owner</div></th>
+                                    <th><div>Owner Email</div></th>
+                                    <th><div>Owner Mobile</div></th>
+                                    <th><div>Type</div></th>
+                                    <th><div>Baths</div></th>
+                                    <th><div>Street</div></th>
+                                    <th><div>Floor</div></th>
+                                    <th><div>DEWA</div></th>
+                                    <th><div>Photos</div></th>
+                                    <th><div>Cheques</div></th>
+                                    <th><div>Fitted</div></th>
+                                    <th><div>Property Status</div></th>
+                                    <th><div>Listing Source</div></th>
+                                    <th><div>Date Available</div></th>
+                                    <th><div>Remind</div></th>
+                                    <th><div>Furnished</div></th>
+                                    <th><div>Featured</div></th>
+                                    <th><div>Maintanance Fee</div></th>
+                                    <th><div>STR</div></th>
+                                    <th><div>Amount</div></th>
+                                    <th><div>Tenanted</div></th>
+                                    <th><div>Plot Size</div></th>
+                                    <th><div>Title</div></th>
+                                    <th><div>View</div></th>
+                                    <th><div>Commission</div></th>
+                                    <th><div>Deposit</div></th>
+                                    <th><div>Price / </div></th>
+                                    <th><div>Listed</div></th>
+                                    <th><div>Updated</div></th>
+                                    <th><div>Created By</div></th>
+                                    <th><div>Key Location</div></th>
+                                    <th><div>Developer Unit</div></th>
+                                    <th><div>Title AR</div></th>
+                                    <th><div>Permit No. (RERA)</div></th>
+                                </tr>
+                                </thead>
+
+                                <thead id="searchbox">
+                                <tr class="search_box">
+                                    <form id="myForm2" class="form-inline">
+                                        <td><a id="reset_filter" style="display:none;" href="#"><i class="fa fa-redo"></i></a></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnStatus" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option style="color: #6eb52c;">&#xf058</option>
+                                                    <option style="color: #d94564;">&#xf057</option>
+                                                    <option style="color: #F9AE13;">&#xf06a</option>
+                                                    <option>&#xf14b</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnManaged" class="form-control">
+                                                    <option>Yes</option>
+                                                    <option>Not</option>
+                                                </select>
+                                            </div>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnExclusive" class="form-control">
+                                                    <option>Yes</option>
+                                                    <option>Not</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnShared" class="form-control">
+                                                    <option>Yes</option>
+                                                    <option>Not</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnRef" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnUnit" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnCategory" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1">Apartment</option>
+                                                    <option value="2">Villa</option>
+                                                    <option value="3">Office</option>
+                                                    <option value="4">Retail</option>
+                                                    <option value="5">Hotel Apartment</option>
+                                                    <option value="6">Warehouse</option>
+                                                    <option value="7">Land Commercial</option>
+                                                    <option value="8">Labour Camp</option>
+                                                    <option value="9">Residential Building</option>
+                                                    <option value="10">Multiple Sale Units</option>
+                                                    <option value="11">Land Residential</option>
+                                                    <option value="12">Commercial Full Building</option>
+                                                    <option value="13">Penthouse</option>
+                                                    <option value="14">Duplex</option>
+                                                    <option value="15">Loft Apartment</option>
+                                                    <option value="16">Townhouse</option>
+                                                    <option value="17">Hotel</option>
+                                                    <option value="18">Land Mixed Use</option>
+                                                    <option value="21">Compound</option>
+                                                    <option value="24">Half Floor</option>
+                                                    <option value="27">Full Floor</option>
+                                                    <option value="30">Commercial Villa</option>
+                                                    <option value="48">Bungalow</option>
+                                                    <option value="50">Factory</option>
+                                                    <option value="52">Staff Accommodation</option>
+                                                    <option value="55">Multiple Rental Units</option>
+                                                    <option value="58">Residential Full Floor</option>
+                                                    <option value="61">Commercial Full Floor</option>
+                                                    <option value="64">Residential Half Floor</option>
+                                                    <option value="67">Commercial Half Floor</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select class="form-control" id="columnEmirate">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="2">Abu Dhabi</option>
+                                                    <option value="4">Ajman</option>
+                                                    <option value="8">Al Ain</option>
+                                                    <option value="1">Dubai</option>
+                                                    <option value="7">Fujairah</option>
+                                                    <option value="6">Ras Al Khaimah</option>
+                                                    <option value="3">Sharjah</option>
+                                                    <option value="5">Umm Al Quwain</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLocation" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnSub-location" type="text" class="form-control" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <select  id="columnBeds" class="form-control">
+                                                    <option value="{{blank}}">(blank)</option>
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0.5">Studio</option>
+                                                    <option value="1">1 bed</option>
+                                                    <option value="2">2 beds</option>
+                                                    <option value="3">3 beds</option>
+                                                    <option value="4">4 beds</option>
+                                                    <option value="5">5 beds</option>
+                                                    <option value="6">6 beds</option>
+                                                    <option value="7">7 beds</option>
+                                                    <option value="8">8 beds</option>
+                                                    <option value="9">9 beds</option>
+                                                    <option value="10">10 beds</option>
+                                                    <option value="11">11 beds</option>
+                                                    <option value="12">12 beds</option>
+                                                    <option value="13">13 beds</option>
+                                                    <option value="14">14 beds</option>
+                                                    <option value="15">15 beds</option>
+                                                    <option value="16">16 beds</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnBUAmin" class="form-control" type="text" placeholder="min">
+                                                <input id="columnBUAmax" class="form-control" type="text" placeholder="max">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnPricemin" class="form-control" type="text">
+                                                <input id="columnPricemax" class="form-control" type="text">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnAgent" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwner" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerEmail" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerMobile" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerType" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerBaths" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerStreet" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerFloor" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerDEWA" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerPhotos" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnOwnerCheques" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnFitted" class="form-control">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option value="1">Semi-Fitted</option>
+                                                    <option value="2">Fitted Space</option>
+                                                    <option value="3">Shell and core</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnPropertyStatus" class="form-control">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option value="1">Available</option>
+                                                    <option value="7">Blocked</option>
+                                                    <option value="2">Pending</option>
+                                                    <option value="6">Renewed</option>
+                                                    <option value="3">Rented</option>
+                                                    <option value="5">Reserved</option>
+                                                    <option value="4">Upcoming</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnListingSource" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="7 days">7 days</option>
+                                                    <option value="Abu Dhabi week">Abu Dhabi week</option>
+                                                    <option value="abudhabi.classonet.com">abudhabi.classonet.com</option>
+                                                    <option value="Agent">Agent</option>
+                                                    <option value="Agent External">Agent External</option>
+                                                    <option value="Agent Internal">Agent Internal</option>
+                                                    <option value="Al Ayam">Al Ayam</option>
+                                                    <option value="Al Bayan">Al Bayan</option>
+                                                    <option value="Al Futtaim">Al Futtaim</option>
+                                                    <option value="Al Ittihad News paper">Al Ittihad News paper</option>
+                                                    <option value="Al Khaleej">Al Khaleej</option>
+                                                    <option value="Al Rai">Al Rai</option>
+                                                    <option value="AL Watan">AL Watan</option>
+                                                    <option value="Arab Times">Arab Times</option>
+                                                    <option value="Asharq Al Awsat">Asharq Al Awsat</option>
+                                                    <option value="Bank Referral">Bank Referral</option>
+                                                    <option value="Bayut.com">Bayut.com</option>
+                                                    <option value="Blackberry SMS">Blackberry SMS</option>
+                                                    <option value="Business Card">Business Card</option>
+                                                    <option value="Client referral">Client referral</option>
+                                                    <option value="Cold Call">Cold Call</option>
+                                                    <option value="Colours TV">Colours TV</option>
+                                                    <option value="Company Email">Company Email</option>
+                                                    <option value="Database">Database</option>
+                                                    <option value="Developer">Developer</option>
+                                                    <option value="Direct Call">Direct Call</option>
+                                                    <option value="Direct Client">Direct Client</option>
+                                                    <option value="Drive around">Drive around</option>
+                                                    <option value="Dubizzle Feature">Dubizzle Feature</option>
+                                                    <option value="Dubizzle.com">Dubizzle.com</option>
+                                                    <option value="Dzooom.com">Dzooom.com</option>
+                                                    <option value="Email campaign">Email campaign</option>
+                                                    <option value="Ertebat">Ertebat</option>
+                                                    <option value="Exhibition Stand">Exhibition Stand</option>
+                                                    <option value="Existing client">Existing client</option>
+                                                    <option value="EzEstate">EzEstate</option>
+                                                    <option value="EzHeights.com">EzHeights.com</option>
+                                                    <option value="Facebook">Facebook</option>
+                                                    <option value="Flyers">Flyers</option>
+                                                    <option value="Forbes Mailer">Forbes Mailer</option>
+                                                    <option value="Friend or Relative">Friend or Relative</option>
+                                                    <option value="Google">Google</option>
+                                                    <option value="Gulf Daily News">Gulf Daily News</option>
+                                                    <option value="Gulf News">Gulf News</option>
+                                                    <option value="Gulf News Mailer">Gulf News Mailer</option>
+                                                    <option value="Gulf Newspaper Freehold">Gulf Newspaper Freehold</option>
+                                                    <option value="Gulf Newspaper Residential">Gulf Newspaper Residential</option>
+                                                    <option value="Gulf Times">Gulf Times</option>
+                                                    <option value="Gulfnews Freehold">Gulfnews Freehold</option>
+                                                    <option value="Gulfpropertyportal.com">Gulfpropertyportal.com</option>
+                                                    <option value="Hut.ae">Hut.ae</option>
+                                                    <option value="Instagram">Instagram</option>
+                                                    <option value="JustProperty.com">JustProperty.com</option>
+                                                    <option value="JustRentals.com">JustRentals.com</option>
+                                                    <option value="JUWAI">JUWAI</option>
+                                                    <option value="Khaleej Times">Khaleej Times</option>
+                                                    <option value="LinkedIn">LinkedIn</option>
+                                                    <option value="Listanza">Listanza</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnDateAvailable" type="date" class="form-control">
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnRemind" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1">1 day</option>
+                                                    <option value="7">1 week</option>
+                                                    <option value="14">2 weeks</option>
+                                                    <option value="70">10 weeks</option>
+                                                    <option value="30">1 month</option>
+                                                    <option value="60">2 months</option>
+                                                    <option value="90">3 months</option>
+                                                    <option value="120">4 months</option>
+                                                    <option value="180">6 months</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnFurnished" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1">Furnished</option>
+                                                    <option value="2">Unfurnished</option>
+                                                    <option value="3">Partly Furnished</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnFeatured" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnMaintananceFee" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnSTR" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnAmount" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnTenanted" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnPlotSize" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnTitle" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnView" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnCommission" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnDeposit" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnPrice" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnListedmin" class="form-control" type="date">
+                                                <input id="columnListedmax" class="form-control" type="date">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnUpdatedmin" class="form-control" type="date">
+                                                <input id="columnUpdatedmax" class="form-control" type="date">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnCreatedBy" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1463012">Waseem Sajjad</option>
+                                                    <option value="1455313">Willy Njoya</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnKeyLocation" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnDeveloperUnit" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnTitleAR" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnPermitNo" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                    </form>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr id="1576257625436389" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="fa fa-check-circle"></i></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-R-7255</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"><div class="overflow" rel="1576257625436389">B105</div></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Townhouse</div></td>
+                                    <td class="cell-in-row">Dubai</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Palm Jumeirah</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Fairmont Residence South</div></td>
+                                    <td class="cell-in-row">3</td>
+                                    <td class="cell-in-row">5180.70</td>
+                                    <td class="cell-in-row">210,000</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Najibulla Najib</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">info@darmalgroup.ae</div></td>
+                                    <td class="cell-in-row">+971 44233743</td>
+                                    <td class="cell-in-row">Townhouse</td>
+                                    <td class="cell-in-row">5</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">16</td>
+                                    <td class="cell-in-row">4</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">- -</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Never</td>
+                                    <td class="cell-in-row">Unfurnished</td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">SPACIOUS 3BR+MAIDS| LARGE TERRACE | PRIVATE SWIMMING POOL</div></td>
+                                    <td class="cell-in-row">Partial sea view</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">40.54</td>
+                                    <td class="cell-in-row">31-01-2018</td>
+                                    <td class="cell-in-row">01-02-2018</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">--</td>
+                                    <td class="cell-in-row"></td>
+                                </tr>
+                                <tr id="1576257625436390" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="fa fa-times-circle"></i></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-R-7255</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"><div class="overflow" rel="1576257625436389">B105</div></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Townhouse</div></td>
+                                    <td class="cell-in-row">Dubai</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Palm Jumeirah</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Fairmont Residence South</div></td>
+                                    <td class="cell-in-row">3</td>
+                                    <td class="cell-in-row">5180.70</td>
+                                    <td class="cell-in-row">210,000</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Najibulla Najib</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">info@darmalgroup.ae</div></td>
+                                    <td class="cell-in-row">+971 44233743</td>
+                                    <td class="cell-in-row">Townhouse</td>
+                                    <td class="cell-in-row">5</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">16</td>
+                                    <td class="cell-in-row">4</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">- -</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Never</td>
+                                    <td class="cell-in-row">Unfurnished</td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">SPACIOUS 3BR+MAIDS| LARGE TERRACE | PRIVATE SWIMMING POOL</div></td>
+                                    <td class="cell-in-row">Partial sea view</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">40.54</td>
+                                    <td class="cell-in-row">31-01-2018</td>
+                                    <td class="cell-in-row">01-02-2018</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">--</td>
+                                    <td class="cell-in-row"></td>
+                                </tr>
+                                <tr id="1576257625436391" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="fa fa-exclamation-circle"></i></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-R-7255</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"><div class="overflow" rel="1576257625436389">B105</div></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Townhouse</div></td>
+                                    <td class="cell-in-row">Dubai</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Palm Jumeirah</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Fairmont Residence South</div></td>
+                                    <td class="cell-in-row">3</td>
+                                    <td class="cell-in-row">5180.70</td>
+                                    <td class="cell-in-row">210,000</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Najibulla Najib</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">info@darmalgroup.ae</div></td>
+                                    <td class="cell-in-row">+971 44233743</td>
+                                    <td class="cell-in-row">Townhouse</td>
+                                    <td class="cell-in-row">5</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">16</td>
+                                    <td class="cell-in-row">4</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">- -</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Never</td>
+                                    <td class="cell-in-row">Unfurnished</td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">SPACIOUS 3BR+MAIDS| LARGE TERRACE | PRIVATE SWIMMING POOL</div></td>
+                                    <td class="cell-in-row">Partial sea view</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">40.54</td>
+                                    <td class="cell-in-row">31-01-2018</td>
+                                    <td class="cell-in-row">01-02-2018</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">--</td>
+                                    <td class="cell-in-row"></td>
+                                </tr>
+                                <tr id="1576257625436392" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="fa fa-check-circle"></i></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-R-7255</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"><div class="overflow" rel="1576257625436389">B105</div></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Townhouse</div></td>
+                                    <td class="cell-in-row">Dubai</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Palm Jumeirah</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Fairmont Residence South</div></td>
+                                    <td class="cell-in-row">3</td>
+                                    <td class="cell-in-row">5180.70</td>
+                                    <td class="cell-in-row">210,000</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Najibulla Najib</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">info@darmalgroup.ae</div></td>
+                                    <td class="cell-in-row">+971 44233743</td>
+                                    <td class="cell-in-row">Townhouse</td>
+                                    <td class="cell-in-row">5</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">16</td>
+                                    <td class="cell-in-row">4</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">- -</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Never</td>
+                                    <td class="cell-in-row">Unfurnished</td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">SPACIOUS 3BR+MAIDS| LARGE TERRACE | PRIVATE SWIMMING POOL</div></td>
+                                    <td class="cell-in-row">Partial sea view</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">40.54</td>
+                                    <td class="cell-in-row">31-01-2018</td>
+                                    <td class="cell-in-row">01-02-2018</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">--</td>
+                                    <td class="cell-in-row"></td>
+                                </tr>
+                                <tr id="1576257625436393" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="fa fa-check-circle"></i></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-R-7255</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"><div class="overflow" rel="1576257625436389">B105</div></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Townhouse</div></td>
+                                    <td class="cell-in-row">Dubai</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Palm Jumeirah</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Fairmont Residence South</div></td>
+                                    <td class="cell-in-row">3</td>
+                                    <td class="cell-in-row">5180.70</td>
+                                    <td class="cell-in-row">210,000</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Najibulla Najib</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">info@darmalgroup.ae</div></td>
+                                    <td class="cell-in-row">+971 44233743</td>
+                                    <td class="cell-in-row">Townhouse</td>
+                                    <td class="cell-in-row">5</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">16</td>
+                                    <td class="cell-in-row">4</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">- -</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Never</td>
+                                    <td class="cell-in-row">Unfurnished</td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">SPACIOUS 3BR+MAIDS| LARGE TERRACE | PRIVATE SWIMMING POOL</div></td>
+                                    <td class="cell-in-row">Partial sea view</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">10,500</td>
+                                    <td class="cell-in-row">40.54</td>
+                                    <td class="cell-in-row">31-01-2018</td>
+                                    <td class="cell-in-row">01-02-2018</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dinara Berdauletova</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389"></div></td>
+                                    <td class="cell-in-row">No</td>
+                                    <td class="cell-in-row">--</td>
+                                    <td class="cell-in-row"></td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="page-selector">
+
+                            <nav aria-label="...">
+                                <div class="select-page">
+                                    <label for="filterPageCount" class="col-sm-6">Show</label>
+
+                                    <select class="form-control" id="filterPageCount">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                    </select>
+
+                                </div>
+                                <ul class="pagination pull-right">
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                        <!-- /BIG listings Table-->
+                    </div>
+                    <div class="tab-pane" id="archived-listings">
+                        <p style="font-size: 56px; color: red;">Put The Archived Listings Table HERE</p>
+                    </div>
+                    <div class="tab-pane" id="pending-listings">
+                        <p style="font-size: 56px; color: red;">Put The Pending Listings Table HERE</p>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--    /Bottom Rentals Block      -->
+</div><!---     WRAP       -->
+
+<div class="footer">
+    <p>
+        <span>Copyright © 2014-2017 Est8World.</span> All rights reserved.
+    </p>
+</div>
+
+<link href="css/toggle-menu.css" rel="stylesheet">
+<script src="js/menu.js" type="text/javascript"></script>
+<script src="js/listings.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myCarousel1").carousel();
+        $("#myCarousel2").carousel();
+        $("#myCarousel3").carousel();
+    });
+</script>
+</div>
+</body>
+</html>

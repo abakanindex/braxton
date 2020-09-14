@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list last_update="2014-08-08 13:14:15" listing_count="834">
+    <property last_update="2014-08-08 14:15:16">
+        <reference_number><![CDATA[AB123]]></reference_number>
+        <offering_type><![CDATA[RR]]></offering_type>
+        <property_type><![CDATA[AP]]></property_type>
+        <price><![CDATA[1000000]]></price>
+        <service_charge><![CDATA[3000]]></service_charge>
+        <rental_period><![CDATA[Y]]></rental_period>
+        <cheques><![CDATA[4]]></cheques>
+        <city><![CDATA[Dubai]]></city>
+        <community><![CDATA[Dubai Marina]]></community>
+        <sub_community><![CDATA[Al Atina]]></sub_community>
+        <property_name><![CDATA[Al Atina Tower A]]></property_name>
+        <title_en><![CDATA[Best apartment for sale in Al Atina !]]></title_en>
+        <title_ar></title_ar>
+        <description_en><![CDATA[The apartment for sale is the best offer in Dubai Marina...]]></description_en>
+        <description_ar></description_ar>
+        <private_amenities><![CDATA[MR,SP,SG]]></private_amenities>
+        <commercial_amenities><![CDATA[CP,CR]]></commercial_amenities>
+        <view><![CDATA[See view, Sheih Zayed Road view, Pool view]]></view>
+        <size><![CDATA[2000]]></size>
+        <bedroom><![CDATA[6]]></bedroom>
+        <bathroom><![CDATA[3]]></bathroom>
+        <agent>
+            <name><![CDATA[John Doe]]></name>
+            <email><![CDATA[john.doe@your-company.ae]]></email>
+            <phone><![CDATA[0123456789]]></phone>
+            <photo><![CDATA[http://www.your-company.ae/agent/1/photo.jpg]]></photo>
+            <info><![CDATA[Available from 8am to 8pm.]]></info>
+        </agent>
+        <developer><![CDATA[Damac Properties]]></developer>
+        <build_year><![CDATA[2009]]></build_year>
+        <floor><![CDATA[10]]></floor>
+        <floors_number><![CDATA[40]]></floors_number>
+        <stories><![CDATA[2]]></stories>
+        <parking><![CDATA[4]]></parking>
+        <furnished><![CDATA[Y]]></furnished>
+        <photo>
+            <url last_update="2014-08-08 15:16:17" watermark="no">
+                <![CDATA[http://www.your-company.ae/listings/AB123/photo-1.jpg]]></url>
+            <url last_update="2014-08-08 15:16:17" watermark="yes">
+                <![CDATA[http://www.your-company.ae/listings/AB123/photo-2.jpg]]></url>
+            <url last_update="2014-08-08 15:16:17" watermark="no">
+                <![CDATA[http://www.your-company.ae/listings/AB123/photo-3.jpg]]></url>
+            <url last_update="2014-08-08 15:16:17" watermark="no">
+                <![CDATA[http://www.your-company.ae/listings/AB123/photo-4.jpg]]></url>
+            <url last_update="2014-08-08 15:16:17" watermark="no">
+                <![CDATA[http://www.your-company.ae/listings/AB123/photo-5.jpg]]></url>
+        </photo>
+        <floor_plan>
+            <url last_update="2014-08-08 15:16:17" watermark="no">
+                <![CDATA[http://www.your-company.ae/listings/AB123/floor-plan-1.jpg]]></url>
+            <url last_update="2014-08-08 15:16:17" watermark="yes">
+                <![CDATA[http://www.your-company.ae/listings/AB123/floor-plan-2.jpg]]></url>
+        </floor_plan>
+        <geopoints><![CDATA[25.12563365, 55.125477751]]></geopoints>
+        <permit_number>999965</permit_number>
+    </property>
+    <property last_update="2014-09-08 14:15:16">
+        <reference_number><![CDATA[XY123]]></reference_number>
+        <offering_type><![CDATA[RS]]></offering_type>
+        <property_type><![CDATA[VH]]></property_type>
+        <price_on_application><![CDATA[Y]]></price_on_application>
+        <city><![CDATA[Dubai]]></city>
+        <community><![CDATA[Dubai Marina]]></community>
+        <title_en><![CDATA[Best apartment for sale in Al Atina !]]></title_en>
+        <title_ar></title_ar>
+        <description_en><![CDATA[The apartment for sale is the best offer in Dubai Marina...]]></description_en>
+        <description_ar></description_ar>
+        <plot_size><![CDATA[3000]]></plot_size>
+        <size><![CDATA[2000]]></size>
+        <bedroom><![CDATA[6]]></bedroom>
+        <agent>
+            <name><![CDATA[John Doe]]></name>
+            <email><![CDATA[john.doe@your-company.ae]]></email>
+            <phone><![CDATA[0123456789]]></phone>
+        </agent>
+    </property>
+</list>

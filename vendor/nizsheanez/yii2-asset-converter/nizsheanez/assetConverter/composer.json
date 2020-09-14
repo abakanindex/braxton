@@ -1,0 +1,27 @@
+{
+    "name": "nizsheanez/yii2-asset-converter",
+    "description": "Less, Sass, Scss and Phamlp converter for Yii2. No system requires. yii2-composer support, Less autoupdate, customizing of output directory",
+    "type": "yii2-extension",
+    "keywords": ["yii", "yii2", "asset", "converter", "less", "sass", "scss", "compass", "phamlp"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Alex Sharov",
+            "email": "www.pismeco@gmail.com",
+            "role": "Author"
+        }
+    ],
+    "require" : {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "2.*",
+        "yiisoft/yii2-composer": "2.*",
+        "oyejorge/less.php": "1.7.0.*",
+        "richthegeek/phpsass": "1.*",
+        "leafo/scssphp": "0.*",
+        "yourilima/scssphp-compass": "1.*"
+    },
+    "autoload": {
+        "psr-0": { "nizsheanez\\assetConverter\\": "" }
+    },
+    "target-dir": "nizsheanez/assetConverter"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "edofre/yii2-fullcalendar",
+  "description": "Yii2 widget for fullcalendar",
+  "require": {
+    "php": ">=5.5.0",
+    "yiisoft/yii2": ">=2.0.9",
+    "yiisoft/yii2-jui": ">=2.0.6",
+    "npm-asset/fullcalendar": "3.5.1"
+  },
+  "keywords": [
+    "fullcalendar",
+    "javascript",
+    "event",
+    "calendar"
+  ],
+  "homepage": "https://github.com/edofre/yii2-fullcalendar",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edo Freriks",
+      "email": "edofre@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "edofre\\fullcalendar\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}

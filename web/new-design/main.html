@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap clearfix">
+    <!---     Top Menu       -->
+
+    <div class="top-menu">
+        <a class="logo" href="/">
+            <span class="logo-lg"><img src="img/logo-lg.png"></span>
+            <span class="logo-sm"><img src="img/logo-sm.png"></span>
+        </a>
+        <a href="#" id="sidebar-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+        <form action="#" method="get" class="form-inline search-form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="right-part">
+            <a href="#" id="notification" class="">
+                <i class="fa fa-bell-o" aria-hidden="true">
+                    <i id="notification-count">0</i>
+                </i>
+            </a>
+            <ul class="menu" id="notification-menu">
+                <li>You have <span class="notifications-menu-count">0</span> notifications</li>
+                <li><div id="notification-string"></div></li>
+                <li><a href="#">View all</a></li>
+                <li><a href="#" id="notification-seen-all">Mark all as seen</a></li>
+            </ul>
+
+            <a href="#" id="items" class=""><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <ul class="menu" id="items-menu">
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Company payments</a></li>
+            </ul>
+
+            <a href="#" id="settings" class=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
+            <ul class="menu" id="settings-menu">
+                <li><a href="#">Roles settings</a></li>
+                <li><a href="#">Users settings</a></li>
+                <li><a href="#">Company list</a></li>
+            </ul>
+
+            <div class="login">
+                <a href="#" id="login">
+                    <img src="img/user3-128x128.jpg" alt="..." class="img-circle">
+                    <p>Alexander Pierce</p><!--<span><i class="fa fa-angle-down" aria-hidden="true"></i></span>-->
+                </a>
+                <a href="#" class="button"><i class="fa fa-sign-out"></i></a>
+            </div>
+        </div>
+    </div><!---     /Top Menu       -->
+
+    <!---     Left Menu       -->
+    <div id="left-menu">
+        <ul class="sidebar-menu">
+            <li><a href="/leads/index"><i class="fa fa-filter"></i>  <span>Leads</span></a></li>
+            <li><a href="/contacts/index"><i class="fa fa-address-book-o"></i>  <span>Contacts</span></a></li>
+            <li><a href="/sales/index"><i class="fa fa-pie-chart"></i>  <span>Sales</span></a></li>
+            <li><a href="/rentals/index"><i class="icon-key-outline"></i>  <span>Rentals</span></a></li>
+            <li><a href="/calendar/main/index"><i class="fa fa-calendar"></i>  <span>Calendar</span></a></li>
+            <li><a href="/commercial-sales/index"><i class="fa fa-tag"></i>  <span>Commercial Sales</span></a></li>
+            <li><a href="/commercial-rentals/index"><i class="fa fa-building-o"></i>  <span>Commercial Rentals</span></a></li>
+            <!--      <li><a href="/import_export/import/index"><i class="fa fa-cloud-upload"></i>  <span>Import</span></a></li> -->
+            <!--<li><a href="/reports/main/dashboard"><i class="fa fa-area-chart"></i>  <span>Reports</span></a></li>-->
+            <li><a href="/task-manager/index"><i class="fa fa-user-o"></i>  <span>Task Manager</span></a></li>
+            <li><a href="/emails/index"><i class="fa fa-envelope-o"></i>  <span>Emails </span></a></li>
+            <li><a href="/reminder/index"><i class="fa fa-bell"></i>  <span>My Reminders </span></a></li>
+            <li><a href="/reminder/personal-assistant"><i class="fa fa-list-alt"></i>  <span>Personal Assistant </span></a></li>
+        </ul>
+    </div><!---     /Left Menu       -->
+
+<!---     Content       -->
+    <div id="content" class="container-fluid clearfix">
+
+        <!--    Info Blocks      -->
+        <div class="container-fluid content">
+            <div class="col-xs-11 col-sm-5 col-md-5 col-lg-3 info-block " >
+                <div class="icon-info-block">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                </div>
+                <div class="data-info-block">
+                    <p class="info-block-count">150</p>
+                    <p class="info-block-text">New Product</p>
+                    <a href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="col-xs-11 col-sm-5 col-md-5 col-lg-3 info-block" >
+                <div class="icon-info-block">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+
+                </div>
+                <div class="data-info-block">
+                    <p class="info-block-count">44</p>
+                    <p class="info-block-text">User Registration</p>
+                    <a href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="col-xs-11 col-sm-5 col-md-5 col-lg-3 info-block" >
+                <div class="icon-info-block">
+                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+
+                </div>
+                <div class="data-info-block">
+                    <p class="info-block-count">65</p>
+                    <p class="info-block-text">Messages</p>
+                    <a href="#">More info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div><!--    /Info Blocks      -->
+
+
+        <!--    Action Blocks      -->
+        <div class="container-fluid content">
+
+            <!--    Tasks Block      -->
+            <div class="col-xs-11 col-sm-5 col-md-5 action-block" >
+                <div class="headline">
+                    <div>Showing 1-4 of 4 items</div>
+                    <a class="btn btn-default pull-right" type="button" href="/task-manager/create"><i class="fa fa-plus"></i> Add task</a>
+                </div>
+                <table class="table table-striped task-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><a class="table-sort" href="#">Title</a></th>
+                            <th><a class="table-sort" href="#">Deadline</a></th>
+                            <th class="action-column">&nbsp;</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>sdfsdf</td>
+                        <td>2018-01-03 06:30</td>
+                        <td>
+                            <a href="#" title="View"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Update"><i class="fa fa-pencil"></i></a>
+                            <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>sdfdsfds</td>
+                        <td>2018-01-10 10:50</td>
+                        <td>
+                            <a href="#" title="View"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Update"><i class="fa fa-pencil"></i></a>
+                            <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>new</td>
+                        <td></td>
+                        <td>
+                            <a href="#" title="View"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Update"><i class="fa fa-pencil"></i></a>
+                            <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>sdfdsfsdfsd</td>
+                        <td>2018-01-18 10:50</td>
+                        <td>
+                            <a href="#" title="View"><i class="fa fa-eye"></i></a>
+                            <a href="#" title="Update"><i class="fa fa-pencil"></i></a>
+                            <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!--    /Tasks Block      -->
+
+            <!--    Email Block      -->
+            <div class="col-xs-11 col-sm-5 col-md-5 action-block" >
+                <div class="headline">
+                    <div>Quick Email</div>
+                    <a class="pull-right" href="#"><i class="fa fa-times"></i></a>
+                </div>
+                <form id="mailer-form" class="">
+                    <div class="form-group">
+                        <label for="mailerform-fromname">From Name</label>
+                        <input type="text" class="form-control" id="mailerform-fromname" placeholder="">
+                        <p class="help-block help-block-error">Example error</p>
+                    </div>
+                    <div class="form-group col-xs-6 padding-right">
+                        <label for="mailerform-fromemail">From Email</label>
+                        <input type="email" class="form-control" id="mailerform-fromemail" placeholder="">
+                        <p class="help-block help-block-error">Example error</p>
+                    </div>
+                    <div class="form-group col-xs-6 padding-left">
+                        <label for="mailerform-toemail">To Email</label>
+                        <input type="email" class="form-control" id="mailerform-toemail" placeholder="">
+                        <p class="help-block help-block-error">Example error</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailerform-subject">Subject</label>
+                        <input type="text" class="form-control" id="mailerform-subject" placeholder="">
+                        <p class="help-block help-block-error">Example error</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailerform-body">Body</label>
+                        <textarea rows="3" class="form-control" id="mailerform-body" placeholder=""></textarea>
+                        <p class="help-block help-block-error">Example error</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-default pull-right">Submit</button>
+                </form>
+            </div><!--    /Email Blocks      -->
+
+        </div><!--    /Action Blocks      -->
+
+
+        <!--    Chat Block      -->
+        <div class="container-fluid content">
+            <div class="col-xs-11 col-sm-10 col-md-10 chat-block" >
+                <div class="headline">
+                    <div>Quick Email</div>
+                    <a class="pull-right" href="#"><i class="fa fa-times"></i></a>
+                </div>
+                <div class="box-body chat" id="chat-box">
+                    <!-- chat item -->
+                    <div class="item">
+                        <img alt="user image" class="online img-circle" src="img/user3-128x128.jpg">
+                        <div class="message">
+                            <a class="name" href="#"> Mike Doe<small class="text-muted"> 2:15</small></a>
+                            <p> I would like to meet you to discuss the latest news about the arrival of the new theme. They say it is going to be one the best themes on the market</p>
+
+                            <!-- attachment -->
+                            <div class="attachment">
+                                <h4>Attachments:</h4>
+                                <p class="filename">Theme-thumbnail-image.jpg</p>
+                                <div class="pull-right">
+                                    <button class="btn btn-primary btn-sm btn-flat" type="button">Open</button>
+                                </div>
+                            </div><!-- /attachment -->
+                        </div>
+                    </div><!-- /item -->
+
+                    <!-- chat item -->
+                    <div class="item">
+                        <img alt="user image" class="online img-circle" src="img/user3-128x128.jpg">
+                        <div class="message">
+                            <a class="name" href="#"> Mike Doe<small class="text-muted"> 2:15</small></a>
+                            <p> I would like to meet you to discuss the latest news about the arrival of the new theme. They say it is going to be one the best themes on the market</p>
+
+                        </div>
+                    </div><!-- /item -->
+
+                    <!-- chat item -->
+                    <div class="item">
+                        <img alt="user image" class="online img-circle" src="img/user3-128x128.jpg">
+                        <div class="message">
+                            <a class="name" href="#"> Mike Doe<small class="text-muted"> 2:15</small></a>
+                            <p> I would like to meet you to discuss the latest news about the arrival of the new theme. They say it is going to be one the best themes on the market</p>
+
+                        </div>
+                    </div><!-- /item -->
+                </div>
+                <form id="chat-message" class="">
+                    <div class="form-group">
+                        <textarea rows="3" class="form-control" id="chat-message-text" placeholder="Type message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right">Send</button>
+                </form>
+            </div>
+        </div><!--    /Chat Block      -->
+
+
+    </div><!---     Content       -->
+
+</div><!---     WRAP       -->
+
+<div class="footer">
+    <p>
+        <span>Copyright © 2014-2017 Est8World.</span> All rights reserved.
+    </p>
+</div>
+
+<link href="css/toggle-menu.css" rel="stylesheet">
+<script src="js/menu.js" type="text/javascript"></script>
+</body>
+</html>

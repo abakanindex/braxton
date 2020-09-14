@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leads</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <link href="css/spectrum.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/bootstrap.min.js'></script>
+    <script src="lib/spectrum.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrap clearfix">
+    <!---     Top Menu       -->
+
+    <div class="top-menu">
+        <a class="logo" href="/">
+            <span class="logo-lg"><img src="img/logo-lg.png"></span>
+            <span class="logo-sm"><img src="img/logo-sm.png"></span>
+        </a>
+        <a href="#" id="sidebar-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+        <form action="#" method="get" class="form-inline search-form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="right-part">
+            <a href="#" id="notification" class="">
+                <i class="fa fa-bell-o" aria-hidden="true">
+                    <i id="notification-count">0</i>
+                </i>
+            </a>
+            <ul class="menu" id="notification-menu">
+                <li>You have <span class="notifications-menu-count">0</span> notifications</li>
+                <li><div id="notification-string"></div></li>
+                <li><a href="#">View all</a></li>
+                <li><a href="#" id="notification-seen-all">Mark all as seen</a></li>
+            </ul>
+
+            <a href="#" id="items" class=""><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <ul class="menu" id="items-menu">
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Company payments</a></li>
+            </ul>
+
+            <a href="#" id="settings" class=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
+            <ul class="menu" id="settings-menu">
+                <li><a href="#">Roles settings</a></li>
+                <li><a href="#">Users settings</a></li>
+                <li><a href="#">Company list</a></li>
+            </ul>
+
+            <div class="login">
+                <a href="#" id="login">
+                    <img src="img/user3-128x128.jpg" alt="..." class="img-circle">
+                    <p>Alexander Pierce</p><!--<span><i class="fa fa-angle-down" aria-hidden="true"></i></span>-->
+                </a>
+                <a href="#" class="button"><i class="fa fa-sign-out"></i></a>
+            </div>
+        </div>
+    </div><!---     /Top Menu       -->
+
+    <!---     Left Menu       -->
+    <div id="left-menu">
+        <ul class="sidebar-menu">
+            <li><a href="/leads.html"><i class="fa fa-filter"></i>  <span>Leads</span></a></li>
+            <li><a href="/contacts/index"><i class="fa fa-address-book-o"></i>  <span>Contacts</span></a></li>
+            <li><a href="/sales/index"><i class="fa fa-pie-chart"></i>  <span>Sales</span></a></li>
+            <li><a href="/rentals/index"><i class="icon-key-outline"></i>  <span>Rentals</span></a></li>
+            <li><a href="/calendar/main/index"><i class="fa fa-calendar"></i>  <span>Calendar</span></a></li>
+            <li><a href="/commercial-sales/index"><i class="fa fa-tag"></i>  <span>Commercial Sales</span></a></li>
+            <li><a href="/commercial-rentals/index"><i class="fa fa-building-o"></i>  <span>Commercial Rentals</span></a></li>
+            <!--      <li><a href="/import_export/import/index"><i class="fa fa-cloud-upload"></i>  <span>Import</span></a></li> -->
+            <li><a href="/reports/main/dashboard"><i class="fa fa-area-chart"></i>  <span>Reports</span></a></li>
+            <li><a href="/task-manager/index"><i class="fa fa-user-o"></i>  <span>Task Manager</span></a></li>
+            <li><a href="/emails/index"><i class="fa fa-envelope-o"></i>  <span>Emails </span></a></li>
+            <li><a href="/reminder/index"><i class="fa fa-bell"></i>  <span>My Reminders </span></a></li>
+            <li><a href="/reminder/personal-assistant"><i class="fa fa-list-alt"></i>  <span>Personal Assistant </span></a></li>
+        </ul>
+    </div><!---     /Left Menu       -->
+
+    <!---     Content       -->
+    <div id="content" class="container-fluid clearfix">
+
+        <div class="container-fluid top-contact-content clearfix"><!--  Top Contact Block -->
+            <div class="head-contact-property container-fluid">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Leads</li>
+                </ul>
+                <h2>Leads</h2>
+                <ul class="list-inline container-fluid">
+                    <li class=""><a id="add-new-element" class="btn green-button" type="button" href="#"><i class="fa fa-plus-circle"></i>New Lead</a></li>
+                    <li class=""><a id="edit-element" class="btn red-button" type="button" href="#"><i class="fa fa-pencil-square-o"></i>Edit Lead</a></li>
+                    <li class=""><a id="save-edit-element" class="btn green-button hidden" type="button" href="#"><i class="fa fa-check-circle"></i>Save</a></li>
+                    <li class=""><a id="cancel-edit-element" class="btn gray-button hidden" type="button" href="#"><i class="fa fa-times-circle"></i>Cancel</a></li>
+                    <li class="pull-right"><a class="btn green-button" type="button" href="#"><i class="fa fa-dot-circle-o"></i>Match Properties</a></li>
+                </ul>
+            </div>
+
+            <div class="container-fluid content-contact-property">
+                <form class="form-horizontal">
+
+                    <div class="container-fluid contact-left-block col-md-4"><!-- Left Contact part-->
+                        <div class="contact-top-column-height">
+
+                            <div class="contact-big-block"><!-- Owner -->
+                                <h3>Lead</h3>
+                                <div class="owner-head">
+                                    <img alt="user image" class="owner-image img-circle " src="img/user3-128x128.jpg">
+                                    <div class="owner-name">
+                                        <h4>Penders Guy</h4>
+                                        <p>Contact</p>
+                                    </div>
+                                </div>
+                                <div class="owner-property property-list">
+                                    <p><i class="fa fa-mobile"></i>+32 474493268</p>
+                                    <p><i class="fa fa-phone"></i>+97 502878964</p>
+                                    <p><i class="fa fa-envelope"></i>info@coreinvest.be</p>
+
+                                </div>
+                            </div><!--/Owner-->
+
+                        </div>
+                        <div class="contact-bottom-column-height">
+
+                            <div class="contact-small-block"><!--Additional Information-->
+                                <h3>Lead information</h3>
+                                <div class="property-list">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputLeadAgent" class="col-sm-6 control-label">Agent</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadAgent">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191" selected="">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadColorCode" class="col-sm-6 control-label">Color Code</label>
+                                            <div class="col-sm-6">
+                                                <input  class="form-control" id="inputLeadColorCode">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadReference" class="col-sm-6 control-label">Reference</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputLeadReference" placeholder="KI-L-27120" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadEnquiryDate" class="col-sm-6 control-label">Enquiry Date</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputLeadEnquiryDate" placeholder="13-02-2018 16:06" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadType" class="col-sm-6 control-label">Lead Type</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadType">
+                                                    <option>Tenant</option>
+                                                    <option>Buyer</option>
+                                                    <option>Seller</option>
+                                                    <option>Investor</option>
+                                                    <option>Status type 5</option>
+                                                    <option>Status type 6</option>
+                                                    <option>Status type 7</option>
+                                                    <option>Status type 9</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadFinance" class="col-sm-6 control-label">Finance</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadFinance">
+                                                    <option>Only for buyer option</option>
+                                                    <option>Cash</option>
+                                                    <option>Loan (approved)</option>
+                                                    <option>Loan (not approved)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadCreatedBy" class="col-sm-6 control-label">Reference</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputLeadCreatedBy" placeholder="Angelica Gozum" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadPriority" class="col-sm-6 control-label">Prioritye</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadPriority">
+                                                    <option>Select</option>
+                                                    <option>Urgent</option>
+                                                    <option>High</option>
+                                                    <option>Normal</option>
+                                                    <option>Low</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadHot" class="col-sm-6 control-label">Hot Lead</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadHot">
+                                                    <option>Select</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadSource" class="col-sm-6 control-label">Source</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputLeadSource">
+                                                    <option>Bayut.com</option>
+                                                    <option>Source 2</option>
+                                                    <option>Source 3</option>
+                                                    <option>Source 4</option>
+                                                    <option>Source 5</option>
+                                                    <option>Source 6</option>
+                                                    <option>Source 7</option>
+                                                    <option>Source 8</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLeadAgentReferral" class="col-sm-6 control-label">Agent Referral</label>
+                                            <div class="col-sm-6">
+                                                <input type="checkbox" id="inputLeadAgentReferral">
+                                            </div>
+                                        </div>
+                                        <div class=" form-group">
+                                            <label for="inputLeadShare" class="col-sm-6 control-label">Share this lead</label>
+                                            <div class="col-sm-6">
+                                                <input type="checkbox" id="inputLeadShare">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /Additional Information-->
+
+                        </div>
+
+                    </div><!-- /Left Contact part-->
+                </form>
+                <form class="form-horizontal">
+                    <div class="container-fluid contact-middle-block col-md-4"><!-- Middle Contact part-->
+
+                        <div class="content-left-block"><!--Property Address & Detalis-->
+                            <h3>Property Requirements</h3>
+                            <div class="property-list">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Property #1
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="inputRequirPropertyID1" class="col-sm-6 control-label">Property ID</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirPropertyID1" placeholder="KI-L-27142">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirCategory1" class="col-sm-6 control-label">Category</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirCategory1">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="1">Apartment</option>
+                                                                <option value="2">Villa</option>
+                                                                <option value="3">Office</option>
+                                                                <option value="4">Retail</option>
+                                                                <option value="5">Hotel Apartment</option>
+                                                                <option value="6">Warehouse</option>
+                                                                <option value="7">Land Commercial</option>
+                                                                <option value="8">Labour Camp</option>
+                                                                <option value="9">Residential Building</option>
+                                                                <option value="10">Multiple Sale Units</option>
+                                                                <option value="11">Land Residential</option>
+                                                                <option value="12">Commercial Full Building</option>
+                                                                <option value="13">Penthouse</option>
+                                                                <option value="14">Duplex</option>
+                                                                <option value="15">Loft Apartment</option>
+                                                                <option value="16">Townhouse</option>
+                                                                <option value="17">Hotel</option>
+                                                                <option value="18">Land Mixed Use</option>
+                                                                <option value="21">Compound</option>
+                                                                <option value="24">Half Floor</option>
+                                                                <option value="27">Full Floor</option>
+                                                                <option value="30">Commercial Villa</option>
+                                                                <option value="48">Bungalow</option>
+                                                                <option value="50">Factory</option>
+                                                                <option value="52">Staff Accommodation</option>
+                                                                <option value="55">Multiple Rental Units</option>
+                                                                <option value="58">Residential Full Floor</option>
+                                                                <option value="61">Commercial Full Floor</option>
+                                                                <option value="64">Residential Half Floor</option>
+                                                                <option value="67">Commercial Half Floor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirEmirate1" class="col-sm-6 control-label">Emirate</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirEmirate1">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="2">Abu Dhabi</option>
+                                                                <option value="4">Ajman</option>
+                                                                <option value="8">Al Ain</option>
+                                                                <option value="1">Dubai</option>
+                                                                <option value="7">Fujairah</option>
+                                                                <option value="6">Ras Al Khaimah</option>
+                                                                <option value="3">Sharjah</option>
+                                                                <option value="5">Umm Al Quwain</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirLocation1" class="col-sm-6 control-label">Location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirLocation1">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirSub-location1" class="col-sm-6 control-label">Sub-location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirSub-location1">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinBeds1" class="col-sm-6 control-label">Min Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMinBeds1">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxBeds1" class="col-sm-6 control-label">Max Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMaxBeds1">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinPrice1" class="col-sm-6 control-label">Min Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinPrice1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxPrice1" class="col-sm-6 control-label">Max Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxPrice1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinArea1" class="col-sm-6 control-label">Min Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinArea1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxArea1" class="col-sm-6 control-label">Max Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxArea1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirType1" class="col-sm-6 control-label">Unit Type</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirType1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirUnit1" class="col-sm-6 control-label">Unit</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirUnit1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Property #2
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="inputRequirPropertyID2" class="col-sm-6 control-label">Property ID</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirPropertyID2" placeholder="KI-L-27142">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirCategory2" class="col-sm-6 control-label">Category</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirCategory2">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="1">Apartment</option>
+                                                                <option value="2">Villa</option>
+                                                                <option value="3">Office</option>
+                                                                <option value="4">Retail</option>
+                                                                <option value="5">Hotel Apartment</option>
+                                                                <option value="6">Warehouse</option>
+                                                                <option value="7">Land Commercial</option>
+                                                                <option value="8">Labour Camp</option>
+                                                                <option value="9">Residential Building</option>
+                                                                <option value="10">Multiple Sale Units</option>
+                                                                <option value="11">Land Residential</option>
+                                                                <option value="12">Commercial Full Building</option>
+                                                                <option value="13">Penthouse</option>
+                                                                <option value="14">Duplex</option>
+                                                                <option value="15">Loft Apartment</option>
+                                                                <option value="16">Townhouse</option>
+                                                                <option value="17">Hotel</option>
+                                                                <option value="18">Land Mixed Use</option>
+                                                                <option value="21">Compound</option>
+                                                                <option value="24">Half Floor</option>
+                                                                <option value="27">Full Floor</option>
+                                                                <option value="30">Commercial Villa</option>
+                                                                <option value="48">Bungalow</option>
+                                                                <option value="50">Factory</option>
+                                                                <option value="52">Staff Accommodation</option>
+                                                                <option value="55">Multiple Rental Units</option>
+                                                                <option value="58">Residential Full Floor</option>
+                                                                <option value="61">Commercial Full Floor</option>
+                                                                <option value="64">Residential Half Floor</option>
+                                                                <option value="67">Commercial Half Floor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirEmirate2" class="col-sm-6 control-label">Emirate</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirEmirate2">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="2">Abu Dhabi</option>
+                                                                <option value="4">Ajman</option>
+                                                                <option value="8">Al Ain</option>
+                                                                <option value="1">Dubai</option>
+                                                                <option value="7">Fujairah</option>
+                                                                <option value="6">Ras Al Khaimah</option>
+                                                                <option value="3">Sharjah</option>
+                                                                <option value="5">Umm Al Quwain</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirLocation2" class="col-sm-6 control-label">Location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirLocation2">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirSub-location2" class="col-sm-6 control-label">Sub-location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirSub-location2">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinBeds2" class="col-sm-6 control-label">Min Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMinBeds2">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxBeds2" class="col-sm-6 control-label">Max Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMaxBeds2">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinPrice2" class="col-sm-6 control-label">Min Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinPrice2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxPrice2" class="col-sm-6 control-label">Max Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxPrice2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinArea2" class="col-sm-6 control-label">Min Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinArea2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxArea2" class="col-sm-6 control-label">Max Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxArea2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirType2" class="col-sm-6 control-label">Unit Type</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirType2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirUnit2" class="col-sm-6 control-label">Unit</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirUnit2" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Property #3
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="inputRequirPropertyID3" class="col-sm-6 control-label">Property ID</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirPropertyID3" placeholder="KI-L-27142">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirCategory3" class="col-sm-6 control-label">Category</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirCategory3">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="1">Apartment</option>
+                                                                <option value="2">Villa</option>
+                                                                <option value="3">Office</option>
+                                                                <option value="4">Retail</option>
+                                                                <option value="5">Hotel Apartment</option>
+                                                                <option value="6">Warehouse</option>
+                                                                <option value="7">Land Commercial</option>
+                                                                <option value="8">Labour Camp</option>
+                                                                <option value="9">Residential Building</option>
+                                                                <option value="10">Multiple Sale Units</option>
+                                                                <option value="11">Land Residential</option>
+                                                                <option value="12">Commercial Full Building</option>
+                                                                <option value="13">Penthouse</option>
+                                                                <option value="14">Duplex</option>
+                                                                <option value="15">Loft Apartment</option>
+                                                                <option value="16">Townhouse</option>
+                                                                <option value="17">Hotel</option>
+                                                                <option value="18">Land Mixed Use</option>
+                                                                <option value="21">Compound</option>
+                                                                <option value="24">Half Floor</option>
+                                                                <option value="27">Full Floor</option>
+                                                                <option value="30">Commercial Villa</option>
+                                                                <option value="48">Bungalow</option>
+                                                                <option value="50">Factory</option>
+                                                                <option value="52">Staff Accommodation</option>
+                                                                <option value="55">Multiple Rental Units</option>
+                                                                <option value="58">Residential Full Floor</option>
+                                                                <option value="61">Commercial Full Floor</option>
+                                                                <option value="64">Residential Half Floor</option>
+                                                                <option value="67">Commercial Half Floor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirEmirate3" class="col-sm-6 control-label">Emirate</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirEmirate3">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="2">Abu Dhabi</option>
+                                                                <option value="4">Ajman</option>
+                                                                <option value="8">Al Ain</option>
+                                                                <option value="1">Dubai</option>
+                                                                <option value="7">Fujairah</option>
+                                                                <option value="6">Ras Al Khaimah</option>
+                                                                <option value="3">Sharjah</option>
+                                                                <option value="5">Umm Al Quwain</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirLocation3" class="col-sm-6 control-label">Location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirLocation3">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirSub-location3" class="col-sm-6 control-label">Sub-location</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirSub-location3">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinBeds3" class="col-sm-6 control-label">Min Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMinBeds3">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxBeds3" class="col-sm-6 control-label">Max Beds</label>
+                                                        <div class="col-sm-6">
+                                                            <select class="form-control" id="inputRequirMaxBeds3">
+                                                                <option value="" selected="">Select</option>
+                                                                <option value="0.5">Studio</option>
+                                                                <option value="1">1 bed</option>
+                                                                <option value="2">2 beds</option>
+                                                                <option value="3">3 beds</option>
+                                                                <option value="4">4 beds</option>
+                                                                <option value="5">5 beds</option>
+                                                                <option value="6">6 beds</option>
+                                                                <option value="7">7 beds</option>
+                                                                <option value="8">8 beds</option>
+                                                                <option value="9">9 beds</option>
+                                                                <option value="10">10 beds</option>
+                                                                <option value="11">11 beds</option>
+                                                                <option value="12">12 beds</option>
+                                                                <option value="13">13 beds</option>
+                                                                <option value="14">14 beds</option>
+                                                                <option value="15">15 beds</option>
+                                                                <option value="16">16 beds</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinPrice3" class="col-sm-6 control-label">Min Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinPrice3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxPrice3" class="col-sm-6 control-label">Max Price</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxPrice3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMinArea3" class="col-sm-6 control-label">Min Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMinArea3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirMaxArea3" class="col-sm-6 control-label">Max Area</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirMaxArea3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirType3" class="col-sm-6 control-label">Unit Type</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirType3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRequirUnit3" class="col-sm-6 control-label">Unit</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="inputRequirUnit3" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div><!-- /Property Address & Detalis-->
+
+                    </div><!-- /Middle Contact part-->
+                </form>
+
+
+                <div class="container-fluid col-md-4 notes-block"><!-- Right part-->
+                    <div id="notes-tab" >
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a  href="#notes" data-toggle="tab">Notes</a></li>
+                            <li><a href="#viewings" data-toggle="tab">Viewings</a></li>
+                            <li><a href="#documents" data-toggle="tab">Documents</a></li>
+                            <li><a href="#history" data-toggle="tab">History</a></li>
+                        </ul>
+                        <div class="property-list">
+                            <div class="tab-content ">
+                                <div class="tab-pane active" id="notes">
+                                    <div class="tab-header">
+                                        <h4>Put Note</h4>
+                                        <form id="notes-form" class="form clearfix">
+                                            <div class="form-group">
+                                                <textarea rows="4" class="form-control" id="note" placeholder=""></textarea>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add your note</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="viewings">
+                                    <div class="tab-header">
+                                        <h4>Put Viewing</h4>
+                                        <form id="viewings-form" class="form-horizontal clearfix">
+                                            <div class="form-group">
+                                                <label for="viewingsListing" class="col-sm-5 control-label">Listing</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsListing">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsDate" class="col-sm-5 control-label">Date</label>
+                                                <div class="col-sm-7">
+                                                    <input type="date" class="form-control" id="viewingsDate" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsTime" class="col-sm-5 control-label">Time</label>
+                                                <div class="col-sm-7">
+                                                    <input type="time" class="form-control" id="viewingsTime" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsAgent" class="col-sm-5 control-label">Agent</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsAgent">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsStatus" class="col-sm-5 control-label">Status</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsStatus">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsName" class="col-sm-5 control-label">Client Name</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control" id="viewingsName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsRequest" class="col-sm-5 control-label">Request</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsRequest">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsNote" class="col-sm-5 control-label">Note</label>
+                                                <div class="col-sm-7">
+                                                    <textarea rows="2" class="form-control" id="viewingsNote" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Viewing</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul class="viewings-list">
+                                            <li>
+                                                <div>
+                                                    <p><span>Date: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="documents">
+                                    <div class="tab-header clearfix">
+                                        <h4>Put Document</h4>
+                                        <form >
+                                            <div class="form-group">
+                                                <label for="documentsFile" class=" control-label">Document</label>
+                                                <div class="">
+                                                    <input type="file" class="form-control" id="documentsFile" placeholder="">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Document</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>Document 1</li>
+                                            <li>Document 2</li>
+                                            <li>Document 3</li>
+                                            <li>Document 4</li>
+                                            <li>Document 5</li>
+                                            <li>Document 6</li>
+                                            <li>Document 7</li>
+                                            <li>Document 8</li>
+                                            <li>Document 9</li>
+                                            <li>Document 10</li>
+                                            <li>Document 11</li>
+                                            <li>Document 12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="history">
+                                    <div class="tab-header"><h4>History List</h4></div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>History 1</li>
+                                            <li>History 2</li>
+                                            <li>History 3</li>
+                                            <li>History 4</li>
+                                            <li>History 5</li>
+                                            <li>History 6</li>
+                                            <li>History 7</li>
+                                            <li>History 8</li>
+                                            <li>History 9</li>
+                                            <li>History 10</li>
+                                            <li>History 11</li>
+                                            <li>History12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /Right part-->
+
+            </div>
+
+        </div><!-- /Top Contact Block -->
+
+        <div class="container-fluid  bottom-rentals-content clearfix"><!--    Bottom Rentals Block      -->
+            <div id="listings-tab" >
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a  href="#current-listings" data-toggle="tab">Current Leads</a>
+                    </li>
+                    <!--
+                    <li><a href="#archived-listings" data-toggle="tab">Archived Leads<span class="badge">42</span></a>
+                    </li>
+                    <li><a href="#pending-listings" data-toggle="tab">Pending Leads</a>
+                    </li>
+                    -->
+                </ul>
+
+                <div class="tab-content ">
+                    <div class="tab-pane active" id="current-listings">
+                        <div class="pane-header container-fluid clearfix">
+                            <!--<form class="form-horizontal" id="filterBlock">
+                                <div>
+
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterAgentListings" class="control-label col-sm-5">Agent Listings</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterAgentListings">
+                                                <option>Agent 1</option>
+                                                <option>Agent 2</option>
+                                                <option>Agent 3</option>
+                                                <option>Agent 4</option>
+                                                <option>Agent 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterCategoryDist" class="control-label col-sm-5">Category Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterCategoryDist">
+                                                <option>Category 1</option>
+                                                <option>Category 2</option>
+                                                <option>Category 3</option>
+                                                <option>Category 4</option>
+                                                <option>Category 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterStatusDist" class="control-label col-sm-5">Status Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterStatusDist">
+                                                <option>Status 1</option>
+                                                <option>Status 2</option>
+                                                <option>Status 3</option>
+                                                <option>Status 4</option>
+                                                <option>Status 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterPriceRange" class="control-label col-sm-5">Price Range</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterPriceRange" type="text" class="span2 " value="" style="width: 100%;" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                                            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" rel="stylesheet">
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+                                            <script>var slider = new Slider('#filterPriceRange', {});</script>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterLastUpdated" class="control-label col-sm-5">Last Updated</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterLastUpdated" class="form-control" type="date">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterTopLocations" class="control-label col-sm-5">Top Locations</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterTopLocations">
+                                                <option>Top Locations 1</option>
+                                                <option>Top Locations 2</option>
+                                                <option>Top Locations 3</option>
+                                                <option>Top Locations 4</option>
+                                                <option>Top Locations 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>-->
+                        </div>
+                        <div id="customizing-block" class="container-fluid clearfix">
+                            <div class="button-block first-block">
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-check-circle"></i> Published</a>
+                                    <a class="btn red-button" href="#"><i class="fa fa-times-circle"></i> Unpublished</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-cloud-download"></i> Share Options</a>
+                                    <a class="btn" href="#"><i class="fa fa-search"></i> Advanced Search</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-mobile"></i> Send SMS</a>
+                                    <a class="btn" href="#"><i class="fa fa-th-list"></i> Bulk Update</a>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="button-block second-block pull-right">
+                                <a class="btn green-button" href="#">Actions<i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">View <i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">Columns<i class="fa fa-angle-down"></i> </a>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- BIG listings Table-->
+                        <div style="overflow-x: auto; padding-right: 0; padding-left: 0;" class=" container-fluid clearfix">
+                            <table id="listings_row" class="table table-bordered" align="center" >
+                                <thead align="left" class="header-table">
+                                    <tr role="row">
+                                    <th><input style="width:15px; margin-right:-10px;" onclick="toggleChecked(this.checked)" id="check_all_checkboxes" value="" type="checkbox"></th>
+                                    <th><div style="min-width: 8px;"></div></th>
+                                    <th><div title="Color code">CC</div></th>
+
+                                    <th><div>Ref</div></th>
+                                    <th><div>Type</div></th>
+                                    <th><div>Status</div></th>
+                                    <th><div>Sub Status</div></th>
+                                    <th><div>Priority</div></th>
+                                    <th><div>Hot</div></th>
+                                    <th><div>First Name</div></th>
+                                    <th><div>Last Name</div></th>
+                                    <th><div>Mobile No</div></th>
+                                    <th><div>Category</div></th>
+                                    <th><div>Emirate</div></th>
+                                    <th><div>Location</div></th>
+                                    <th><div>Sub-location</div></th>
+                                    <th><div>Unit Type</div></th>
+                                    <th><div>Unit No</div></th>
+                                    <th><div>Min Beds</div></th>
+                                    <th><div>Max Beds</div></th>
+                                    <th><div>Min Price</div></th>
+                                    <th><div>Max Price</div></th>
+                                    <th><div>Min Area</div></th>
+                                    <th><div>Max Area</div></th>
+                                    <th><div>Listing Ref</div></th>
+                                    <th><div>Source</div></th>
+                                    <th><div>Agent 1</div></th>
+                                    <th><div>Agent 2</div></th>
+                                    <th><div>Agent 3</div></th>
+                                    <th><div>Agent 4</div></th>
+                                    <th><div>Agent 5</div></th>
+                                    <th><div>Created By</div></th>
+                                    <th><div>Finance</div></th>
+                                    <th><div>Enquiry Date</div></th>
+                                    <th><div>Updated</div></th>
+                                    <th><div>Agent Referral</div></th>
+                                    <th><div>Shared Lead</div></th>
+                                    <th><div>Contact Company</div></th>
+                                    <th><div>Email Address</div></th>
+                                </tr>
+                                </thead>
+
+                                <thead id="searchbox">
+                                <tr class="search_box">
+                                    <form id="LeadForm" class="form-inline">
+                                        <td><a id="reset_filter" style="display:none;" href="#"><i class="fa fa-redo"></i></a></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnColorCode" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option>Select</option>
+                                                    <option class="lead-color-code-red">&#9632;</option>
+                                                    <option class="lead-color-code-green">&#9632;</option>
+                                                    <option class="lead-color-code-blue">&#9632;</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnLeadRef" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="columnLeadType">
+                                                        <option>Select</option>
+                                                        <option>Tenant</option>
+                                                        <option>Buyer</option>
+                                                        <option>Landlord</option>
+                                                        <option>Seller</option>
+                                                        <option>Landlord+Seller</option>
+                                                        <option>Not Specified</option>
+                                                        <option>Investor</option>
+                                                        <option>Agent</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="columnLeadStatus">
+                                                        <option>Select</option>
+                                                        <option>Open</option>
+                                                        <option>Closed</option>
+                                                        <option>Not Specified</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="columnLeadSubStatus">
+                                                        <option>Select</option>
+                                                        <option>Open</option>
+                                                        <option>Closed</option>
+                                                        <option>Not Specified</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select class="form-control" id="columnLeadPriority">
+                                                    <option>Select</option>
+                                                    <option>Urgent</option>
+                                                    <option>High</option>
+                                                    <option>Low</option>
+                                                    <option>Normal</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <select class="form-control" id="columnLeadHot">
+                                                    <option>Select</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadFirstName" type="text" class="form-control" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadLastName" type="text" class="form-control" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnLeadMobile" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadCategory" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1">Apartment</option>
+                                                    <option value="2">Villa</option>
+                                                    <option value="3">Office</option>
+                                                    <option value="4">Retail</option>
+                                                    <option value="5">Hotel Apartment</option>
+                                                    <option value="6">Warehouse</option>
+                                                    <option value="7">Land Commercial</option>
+                                                    <option value="8">Labour Camp</option>
+                                                    <option value="9">Residential Building</option>
+                                                    <option value="10">Multiple Sale Units</option>
+                                                    <option value="11">Land Residential</option>
+                                                    <option value="12">Commercial Full Building</option>
+                                                    <option value="13">Penthouse</option>
+                                                    <option value="14">Duplex</option>
+                                                    <option value="15">Loft Apartment</option>
+                                                    <option value="16">Townhouse</option>
+                                                    <option value="17">Hotel</option>
+                                                    <option value="18">Land Mixed Use</option>
+                                                    <option value="21">Compound</option>
+                                                    <option value="24">Half Floor</option>
+                                                    <option value="27">Full Floor</option>
+                                                    <option value="30">Commercial Villa</option>
+                                                    <option value="48">Bungalow</option>
+                                                    <option value="50">Factory</option>
+                                                    <option value="52">Staff Accommodation</option>
+                                                    <option value="55">Multiple Rental Units</option>
+                                                    <option value="58">Residential Full Floor</option>
+                                                    <option value="61">Commercial Full Floor</option>
+                                                    <option value="64">Residential Half Floor</option>
+                                                    <option value="67">Commercial Half Floor</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select class="form-control" id="columnLeadEmirate">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="2">Abu Dhabi</option>
+                                                    <option value="4">Ajman</option>
+                                                    <option value="8">Al Ain</option>
+                                                    <option value="1">Dubai</option>
+                                                    <option value="7">Fujairah</option>
+                                                    <option value="6">Ras Al Khaimah</option>
+                                                    <option value="3">Sharjah</option>
+                                                    <option value="5">Umm Al Quwain</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadLocation" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadSub-location" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadUnitType" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadUnitNo" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMinBeds" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMaxBeds" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMinPrice" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMaxPrice" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMinArea" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadMaxArea" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnLeadListingRef" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadSource" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="7 days">7 days</option>
+                                                    <option value="Abu Dhabi week">Abu Dhabi week</option>
+                                                    <option value="abudhabi.classonet.com">abudhabi.classonet.com</option>
+                                                    <option value="Agent">Agent</option>
+                                                    <option value="Agent External">Agent External</option>
+                                                    <option value="Agent Internal">Agent Internal</option>
+                                                    <option value="Al Ayam">Al Ayam</option>
+                                                    <option value="Al Bayan">Al Bayan</option>
+                                                    <option value="Al Futtaim">Al Futtaim</option>
+                                                    <option value="Al Ittihad News paper">Al Ittihad News paper</option>
+                                                    <option value="Al Khaleej">Al Khaleej</option>
+                                                    <option value="Al Rai">Al Rai</option>
+                                                    <option value="AL Watan">AL Watan</option>
+                                                    <option value="Arab Times">Arab Times</option>
+                                                    <option value="Asharq Al Awsat">Asharq Al Awsat</option>
+                                                    <option value="Bank Referral">Bank Referral</option>
+                                                    <option value="Bayut.com">Bayut.com</option>
+                                                    <option value="Blackberry SMS">Blackberry SMS</option>
+                                                    <option value="Business Card">Business Card</option>
+                                                    <option value="Client referral">Client referral</option>
+                                                    <option value="Cold Call">Cold Call</option>
+                                                    <option value="Colours TV">Colours TV</option>
+                                                    <option value="Company Email">Company Email</option>
+                                                    <option value="Database">Database</option>
+                                                    <option value="Developer">Developer</option>
+                                                    <option value="Direct Call">Direct Call</option>
+                                                    <option value="Direct Client">Direct Client</option>
+                                                    <option value="Drive around">Drive around</option>
+                                                    <option value="Dubizzle Feature">Dubizzle Feature</option>
+                                                    <option value="Dubizzle.com">Dubizzle.com</option>
+                                                    <option value="Dzooom.com">Dzooom.com</option>
+                                                    <option value="Email campaign">Email campaign</option>
+                                                    <option value="Ertebat">Ertebat</option>
+                                                    <option value="Exhibition Stand">Exhibition Stand</option>
+                                                    <option value="Existing client">Existing client</option>
+                                                    <option value="EzEstate">EzEstate</option>
+                                                    <option value="EzHeights.com">EzHeights.com</option>
+                                                    <option value="Facebook">Facebook</option>
+                                                    <option value="Flyers">Flyers</option>
+                                                    <option value="Forbes Mailer">Forbes Mailer</option>
+                                                    <option value="Friend or Relative">Friend or Relative</option>
+                                                    <option value="Google">Google</option>
+                                                    <option value="Gulf Daily News">Gulf Daily News</option>
+                                                    <option value="Gulf News">Gulf News</option>
+                                                    <option value="Gulf News Mailer">Gulf News Mailer</option>
+                                                    <option value="Gulf Newspaper Freehold">Gulf Newspaper Freehold</option>
+                                                    <option value="Gulf Newspaper Residential">Gulf Newspaper Residential</option>
+                                                    <option value="Gulf Times">Gulf Times</option>
+                                                    <option value="Gulfnews Freehold">Gulfnews Freehold</option>
+                                                    <option value="Gulfpropertyportal.com">Gulfpropertyportal.com</option>
+                                                    <option value="Hut.ae">Hut.ae</option>
+                                                    <option value="Instagram">Instagram</option>
+                                                    <option value="JustProperty.com">JustProperty.com</option>
+                                                    <option value="JustRentals.com">JustRentals.com</option>
+                                                    <option value="JUWAI">JUWAI</option>
+                                                    <option value="Khaleej Times">Khaleej Times</option>
+                                                    <option value="LinkedIn">LinkedIn</option>
+                                                    <option value="Listanza">Listanza</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgent1" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgent2" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgent3" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgent4" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgent5" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadCreatedBy" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadFinance" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1">Cash</option>
+                                                    <option value="2">Loan (approved)</option>
+                                                    <option value="3">Loan (not approved)</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadEnquiryDate" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadUpdated" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadAgentReferral" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnLeadShare" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnLeadContactCompany" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnLeadEmailAddress" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                    </form>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr id="1576257625436385" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row"><i class="lead-color-code-red">&#9632;</i></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-L-27142</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Tenant</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Open</div></td>
+                                    <td class="cell-in-row">Not yet contacted</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Normal</div></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Mattia</div></td>
+                                    <td class="cell-in-row">Sterbizzi</td>
+                                    <td class="cell-in-row">+971621564476</td>
+                                    <td class="cell-in-row">Apartment</td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dubai</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">DIFC</div></td>
+                                    <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Sky Gardens</div></td>
+                                    <td class="cell-in-row">17</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">1</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row">119,990</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row">789</td>
+                                    <td class="cell-in-row">0</td>
+                                    <td class="cell-in-row">KI-R-4183</td>
+                                    <td class="cell-in-row">JustProperty.com</td>
+                                    <td class="cell-in-row">Deoclecio Junior</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Deoclecio Junior</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">14-02-2018 13:40</td>
+                                    <td class="cell-in-row">14-02-2018</td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row"></td>
+                                    <td class="cell-in-row">mattia.sterbizzi@gmail.com</td>
+                                </tr>
+                                    <tr id="1576257625436386" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row"><i class="lead-color-code-green">&#9632;</i></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-L-27142</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Tenant</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Open</div></td>
+                                        <td class="cell-in-row">Not yet contacted</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Normal</div></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Mattia</div></td>
+                                        <td class="cell-in-row">Sterbizzi</td>
+                                        <td class="cell-in-row">+971621564476</td>
+                                        <td class="cell-in-row">Apartment</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dubai</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">DIFC</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Sky Gardens</div></td>
+                                        <td class="cell-in-row">17</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">1</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">119,990</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">789</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">KI-R-4183</td>
+                                        <td class="cell-in-row">JustProperty.com</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">14-02-2018 13:40</td>
+                                        <td class="cell-in-row">14-02-2018</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">mattia.sterbizzi@gmail.com</td>
+                                    </tr>
+                                    <tr id="1576257625436387" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row"><i class="lead-color-code-blue">&#9632;</i></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-L-27142</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Tenant</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Open</div></td>
+                                        <td class="cell-in-row">Not yet contacted</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Normal</div></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Mattia</div></td>
+                                        <td class="cell-in-row">Sterbizzi</td>
+                                        <td class="cell-in-row">+971621564476</td>
+                                        <td class="cell-in-row">Apartment</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dubai</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">DIFC</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Sky Gardens</div></td>
+                                        <td class="cell-in-row">17</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">1</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">119,990</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">789</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">KI-R-4183</td>
+                                        <td class="cell-in-row">JustProperty.com</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">14-02-2018 13:40</td>
+                                        <td class="cell-in-row">14-02-2018</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">mattia.sterbizzi@gmail.com</td>
+                                    </tr>
+                                    <tr id="1576257625436388" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row"><i class="lead-color-code-red">&#9632;</i></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-L-27142</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Tenant</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Open</div></td>
+                                        <td class="cell-in-row">Not yet contacted</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Normal</div></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Mattia</div></td>
+                                        <td class="cell-in-row">Sterbizzi</td>
+                                        <td class="cell-in-row">+971621564476</td>
+                                        <td class="cell-in-row">Apartment</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dubai</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">DIFC</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Sky Gardens</div></td>
+                                        <td class="cell-in-row">17</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">1</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">119,990</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">789</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">KI-R-4183</td>
+                                        <td class="cell-in-row">JustProperty.com</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">14-02-2018 13:40</td>
+                                        <td class="cell-in-row">14-02-2018</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">mattia.sterbizzi@gmail.com</td>
+                                    </tr>
+                                    <tr id="1576257625436389" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row"><i class="lead-color-code-blue">&#9632;</i></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">KI-L-27142</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Tenant</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Open</div></td>
+                                        <td class="cell-in-row">Not yet contacted</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Normal</div></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Mattia</div></td>
+                                        <td class="cell-in-row">Sterbizzi</td>
+                                        <td class="cell-in-row">+971621564476</td>
+                                        <td class="cell-in-row">Apartment</td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Dubai</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">DIFC</div></td>
+                                        <td class="cell-in-row"><div class="overflow" rel="1576257625436389">Sky Gardens</div></td>
+                                        <td class="cell-in-row">17</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">1</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">119,990</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">789</td>
+                                        <td class="cell-in-row">0</td>
+                                        <td class="cell-in-row">KI-R-4183</td>
+                                        <td class="cell-in-row">JustProperty.com</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Deoclecio Junior</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">14-02-2018 13:40</td>
+                                        <td class="cell-in-row">14-02-2018</td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row"></td>
+                                        <td class="cell-in-row">mattia.sterbizzi@gmail.com</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="page-selector">
+
+                            <nav aria-label="...">
+                                <div class="select-page">
+                                    <label for="filterPageCount" class="col-sm-6">Show</label>
+
+                                    <select class="form-control" id="filterPageCount">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                    </select>
+
+                                </div>
+                                <ul class="pagination pull-right">
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                        <!-- /BIG listings Table-->
+                    </div>
+                    <!--
+                    <div class="tab-pane" id="archived-listings">
+                        <p style="font-size: 56px; color: red;">Put The Archived Listings Table HERE</p>
+                    </div>
+                    <div class="tab-pane" id="pending-listings">
+                        <p style="font-size: 56px; color: red;">Put The Pending Listings Table HERE</p>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+        </div><!--    /Bottom Rentals Block      -->
+
+    </div><!---     /Content       -->
+
+    <div class="footer">
+        <p>
+            <span>Copyright © 2014-2017 Est8World.</span> All rights reserved.
+        </p>
+    </div>
+
+    <link href="css/toggle-menu.css" rel="stylesheet">
+    <script src="js/menu.js" type="text/javascript"></script>
+    <script src="js/listings.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myCarousel").carousel();
+
+        });
+
+    </script>
+
+
+    <script>
+        $("#inputLeadColorCode").spectrum({
+            showPaletteOnly: true,
+            color: '#00ADEF',
+            showButtons: false,
+            //disabled: true,
+            hideAfterPaletteSelect:true,
+            palette: [
+                ['#EE1C25', '#0DB24C', '#00ADEF']
+            ]
+        });
+    </script>
+</div>
+</body>
+</html>

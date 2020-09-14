@@ -1,0 +1,146 @@
+body
+{
+    width:100%;
+    font-size:10pt;
+    margin:0;
+    padding:0;
+}
+
+p
+{
+    margin:0;
+    padding:0;
+}
+
+#wrapper
+{
+    width:180mm;
+    margin:0 15mm;
+}
+
+.page
+{
+    height:297mm;
+    width:210mm;
+    page-break-after:always;
+}
+
+table
+{
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-spacing:0;
+    border-collapse: collapse;
+
+}
+
+table td
+{
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 2mm;
+}
+
+td.icon-blank {
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+table.heading
+{
+    height:50mm;
+}
+
+h1.heading
+{
+    font-size:14pt;
+    color:#000;
+    font-weight:normal;
+}
+
+h2.heading
+{
+    font-size:9pt;
+    color:#000;
+    font-weight:normal;
+}
+
+hr
+{
+    color:#ccc;
+    background:#ccc;
+}
+
+.report-color-1 {
+    background: #1FCE6E;
+}
+
+.report-color-2 {
+    background: #298ED2;
+}
+
+.report-color-3 {
+    background: #F3AC5A;
+}
+
+.report-color-4 {
+    background: #9D6CE1;
+}
+
+.report-color-5 {
+    background: #21C2C5;
+}
+
+.report-color-6 {
+    background: #E3071C;
+}
+
+.report-color-7 {
+    background: #FFEA00;
+}
+
+.report-color-8 {
+    background: #ED74BE;
+}
+
+.report-color-9 {
+    background: #A1887F;
+}
+
+.report-color-10 {
+    background: #B9BE29;
+}
+
+.report-color-other {
+    background: #C7C7C7;
+}
+
+#footer
+{
+    width:180mm;
+    margin:0 15mm;
+    padding-bottom:3mm;
+}
+#footer table
+{
+    width:100%;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+
+    background:#eee;
+
+    border-spacing:0;
+    border-collapse: collapse;
+}
+#footer table td
+{
+    width:25%;
+    text-align:center;
+    font-size:9pt;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}

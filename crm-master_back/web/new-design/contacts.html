@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    <!--<link href="css/spectrum.css" rel="stylesheet">-->
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/bootstrap.min.js'></script>
+    <!--<script src="lib/spectrum.js" type="text/javascript"></script>-->
+</head>
+<body>
+<div class="wrap clearfix">
+    <!---     Top Menu       -->
+
+    <div class="top-menu">
+        <a class="logo" href="/">
+            <span class="logo-lg"><img src="img/logo-lg.png"></span>
+            <span class="logo-sm"><img src="img/logo-sm.png"></span>
+        </a>
+        <a href="#" id="sidebar-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+        <form action="#" method="get" class="form-inline search-form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="right-part">
+            <a href="#" id="notification" class="">
+                <i class="fa fa-bell-o" aria-hidden="true">
+                    <i id="notification-count">0</i>
+                </i>
+            </a>
+            <ul class="menu" id="notification-menu">
+                <li>You have <span class="notifications-menu-count">0</span> notifications</li>
+                <li><div id="notification-string"></div></li>
+                <li><a href="#">View all</a></li>
+                <li><a href="#" id="notification-seen-all">Mark all as seen</a></li>
+            </ul>
+
+            <a href="#" id="items" class=""><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <ul class="menu" id="items-menu">
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Company payments</a></li>
+            </ul>
+
+            <a href="#" id="settings" class=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
+            <ul class="menu" id="settings-menu">
+                <li><a href="#">Roles settings</a></li>
+                <li><a href="#">Users settings</a></li>
+                <li><a href="#">Company list</a></li>
+            </ul>
+
+            <div class="login">
+                <a href="#" id="login">
+                    <img src="img/user3-128x128.jpg" alt="..." class="img-circle">
+                    <p>Alexander Pierce</p><!--<span><i class="fa fa-angle-down" aria-hidden="true"></i></span>-->
+                </a>
+                <a href="#" class="button"><i class="fa fa-sign-out"></i></a>
+            </div>
+        </div>
+    </div><!---     /Top Menu       -->
+
+
+    <div id="left-menu"><!---     Left Menu       -->
+        <ul class="sidebar-menu">
+            <li><a href="/leads/index"><i class="fa fa-filter"></i>  <span>Leads</span></a></li>
+            <li><a href="/contacts/index"><i class="fa fa-address-book-o"></i>  <span>Contacts</span></a></li>
+            <li><a href="/sales/index"><i class="fa fa-pie-chart"></i>  <span>Sales</span></a></li>
+            <li><a href="/rentals/index"><i class="icon-key-outline"></i>  <span>Rentals</span></a></li>
+            <li><a href="/calendar/main/index"><i class="fa fa-calendar"></i>  <span>Calendar</span></a></li>
+            <li><a href="/commercial-sales/index"><i class="fa fa-tag"></i>  <span>Commercial Sales</span></a></li>
+            <li><a href="/commercial-rentals/index"><i class="fa fa-building-o"></i>  <span>Commercial Rentals</span></a></li>
+            <!--      <li><a href="/import_export/import/index"><i class="fa fa-cloud-upload"></i>  <span>Import</span></a></li> -->
+            <li><a href="/reports/main/dashboard"><i class="fa fa-area-chart"></i>  <span>Reports</span></a></li>
+            <li><a href="/task-manager/index"><i class="fa fa-user-o"></i>  <span>Task Manager</span></a></li>
+            <li><a href="/emails/index"><i class="fa fa-envelope-o"></i>  <span>Emails </span></a></li>
+            <li><a href="/reminder/index"><i class="fa fa-bell"></i>  <span>My Reminders </span></a></li>
+            <li><a href="/reminder/personal-assistant"><i class="fa fa-list-alt"></i>  <span>Personal Assistant </span></a></li>
+        </ul>
+    </div><!---     /Left Menu       -->
+
+
+    <div id="content" class="container-fluid clearfix"><!---     Content       -->
+
+
+        <div class="container-fluid top-contact-content clearfix"><!--  Top Contact Block -->
+            <div class="head-contact-property container-fluid">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Contacts</li>
+                </ul>
+                <h2>Contact</h2>
+                <ul class="list-inline container-fluid">
+                    <li class=""><a id="add-new-element" class="btn green-button" type="button" href="#"><i class="fa fa-plus-circle"></i>New Contact</a></li>
+                    <li class=""><a id="edit-element" class="btn red-button" type="button" href="#"><i class="fa fa-pencil-square-o"></i>Edit Contact</a></li>
+                    <li class=""><a id="save-edit-element" class="btn green-button hidden" type="button" href="#"><i class="fa fa-check-circle"></i>Save</a></li>
+                    <li class=""><a id="cancel-edit-element" class="btn gray-button hidden" type="button" href="#"><i class="fa fa-times-circle"></i>Cancel</a></li>
+                    <li class="pull-right"><a class="btn green-button" type="button" href="#"><i class="fa fa-dot-circle-o"></i>Match Properties</a></li>
+                </ul>
+            </div>
+
+            <div class="container-fluid content-contact-property">
+                <form class="form-horizontal">
+
+                    <div class="container-fluid contact-left-block col-md-4"><!-- Left Contact part-->
+                        <div class="contact-top-column-height">
+
+                            <div class="contact-big-block"><!-- Owner -->
+                                <!--<h3>Contact</h3>-->
+                                <div class="owner-head">
+                                    <!--<img alt="user image" class="owner-image img-circle " src="img/user3-128x128.jpg">-->
+                                    <div class="owner-name">
+                                        <h4>Penders Guy</h4>
+                                        <p>Contact</p>
+                                    </div>
+                                </div>
+                                <div class="owner-property property-list">
+                                    <p><i class="fa fa-mobile"></i>+32 474493268</p>
+                                    <p><i class="fa fa-phone"></i>+97 502878964</p>
+                                    <p><i class="fa fa-envelope"></i>info@coreinvest.be</p>
+
+                                </div>
+                            </div><!--/Owner-->
+
+                        </div>
+                        <div class="contact-bottom-column-height">
+
+                            <div class="contact-small-block"><!--Additional Information-->
+                                <h3>Contact information</h3>
+                                <div class="property-list">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputContactAssignedTo" class="col-sm-6 control-label">Assigned To</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactAssignedTo">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191" selected="">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputContactReference" class="col-sm-6 control-label">Ref</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactReference" placeholder="KI-L-27120" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactTitle" class="col-sm-6 control-label">Title</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactTitle">
+                                                    <option>Select</option>
+                                                    <option>Mr</option>
+                                                    <option>Mrs</option>
+                                                    <option>Ms</option>
+                                                    <option>Miss</option>
+                                                    <option>Mx</option>
+                                                    <option>Master</option>
+                                                    <option>Sir</option>
+                                                    <option>Madam</option>
+                                                    <option>Dr</option>
+                                                    <option>Prof</option>
+                                                    <option>Hon</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactFirstName" class="col-sm-6 control-label">First Name</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactFirstName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactLastName" class="col-sm-6 control-label">Last Name</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactLastName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactGender" class="col-sm-6 control-label">Gender</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactGender">
+                                                    <option>Select</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactDateBirth" class="col-sm-6 control-label">Date of Birth</label>
+                                            <div class="col-sm-6">
+                                                <input type="date" class="form-control" id="inputContactDateBirth" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactNationalities" class="col-sm-6 control-label">Nationalities</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactNationalities">
+                                                    <option>Select</option>
+                                                    <option>Nationalities 1</option>
+                                                    <option>Nationalities 2</option>
+                                                    <option>Nationalities 3</option>
+                                                    <option>Nationalities 4</option>
+                                                    <option>Nationalities 5</option>
+                                                    <option>Nationalities 6</option>
+                                                    <option>Nationalities 7</option>
+                                                    <option>Nationalities 8</option>
+                                                    <option>Nationalities 9</option>
+                                                    <option>Nationalities 254</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactReligion" class="col-sm-6 control-label">Religion</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactReligion">
+                                                    <option>Select</option>
+                                                    <option>Religion 1</option>
+                                                    <option>Religion 2</option>
+                                                    <option>Religion 3</option>
+                                                    <option>Religion 4</option>
+                                                    <option>Religion 5</option>
+                                                    <option>Religion 6</option>
+                                                    <option>Religion 7</option>
+                                                    <option>Religion 8</option>
+                                                    <option>Religion 9</option>
+                                                    <option>Religion 254</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactLanguage" class="col-sm-6 control-label">Language</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactLanguage">
+                                                    <option>Select</option>
+                                                    <option>Language 1</option>
+                                                    <option>Language 2</option>
+                                                    <option>Language 3</option>
+                                                    <option>Language 4</option>
+                                                    <option>Language 5</option>
+                                                    <option>Language 6</option>
+                                                    <option>Language 220</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactHobbies" class="col-sm-6 control-label">Hobbies</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactHobbies" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactCreatedBy" class="col-sm-6 control-label">Created By</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactCreatedBy" placeholder="Waqas Ahmed" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactSource" class="col-sm-6 control-label">Contact Source</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactSource">
+                                                    <option>Bayut.com</option>
+                                                    <option>Source 2</option>
+                                                    <option>Source 3</option>
+                                                    <option>Source 4</option>
+                                                    <option>Source 5</option>
+                                                    <option>Source 6</option>
+                                                    <option>Source 7</option>
+                                                    <option>Source 8</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactType" class="col-sm-6 control-label">Contact Type</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" id="inputContactType">
+                                                    <option>Tenant</option>
+                                                    <option>Buyer</option>
+                                                    <option>Seller</option>
+                                                    <option>Investor</option>
+                                                    <option>Status type 5</option>
+                                                    <option>Status type 6</option>
+                                                    <option>Status type 7</option>
+                                                    <option>Status type 9</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactCompanyName" class="col-sm-6 control-label">Company Name</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactCompanyName" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputContactDesignation" class="col-sm-6 control-label">Designation</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="inputContactDesignation" placeholder="">
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div><!-- /Additional Information-->
+
+                        </div>
+
+                    </div><!-- /Left Contact part-->
+                </form>
+                <form class="form-horizontal">
+                    <div class="container-fluid contact-middle-block col-md-4"><!-- Middle Contact part-->
+
+                        <div class="content-left-block"><!--Property Address & Detalis-->
+                            <h3>Contact Details</h3>
+                            <div class="property-list">
+                                <div class="form-group">
+                                    <label for="inputContactMobilePersonal" class="col-sm-6 control-label">Mobile Personal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactMobilePersonal" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactPhonePersonal" class="col-sm-6 control-label">Phone Personal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactPhonePersonal" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactEmailPersonal" class="col-sm-6 control-label">Email Personal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactEmailPersonal" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactMobileWork" class="col-sm-6 control-label">Mobile Work</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactMobileWork" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactMobileOther" class="col-sm-6 control-label">Mobile Other</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactMobileOther" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactPhoneWork" class="col-sm-6 control-label">Phone Work</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactPhoneWork" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactPhoneOther" class="col-sm-6 control-label">Phone Other</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactPhoneOther" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactEmailWork" class="col-sm-6 control-label">Email Work</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactEmailWork" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactEmailOther" class="col-sm-6 control-label">Email Other</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactEmailOther" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactAddressPersonal" class="col-sm-6 control-label">Address Personal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactAddressPersonal" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactAddressWork" class="col-sm-6 control-label">Address Work</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactAddressWork" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactFaxPersonal" class="col-sm-6 control-label">Fax Personal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactFaxPersonal" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactFaxWork" class="col-sm-6 control-label">Fax Work</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactFaxWork" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactFaxOther" class="col-sm-6 control-label">Fax Other</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="inputContactFaxOther" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactWebsite" class="col-sm-6 control-label">Website</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactWebsite" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactFacebook" class="col-sm-6 control-label">Facebook</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactFacebook" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactTwitter" class="col-sm-6 control-label">Twitter</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactTwitter" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactLinkedIn" class="col-sm-6 control-label">LinkedIn</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactLinkedIn" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactGoogle" class="col-sm-6 control-label">Google+</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactGoogle" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactInstagram" class="col-sm-6 control-label">Instagram</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactInstagram" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactWeChat" class="col-sm-6 control-label">WeChat</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactWeChat" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContactSkype" class="col-sm-6 control-label">Skype</label>
+                                    <div class="col-sm-6">
+                                        <input type="url" class="form-control" id="inputContactSkype" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /Property Address & Detalis-->
+
+                    </div><!-- /Middle Contact part-->
+                </form>
+
+
+                <div class="container-fluid col-md-4 notes-block"><!-- Right part-->
+                    <div id="notes-tab" >
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a  href="#notes" data-toggle="tab">Notes</a></li>
+                            <li><a href="#viewings" data-toggle="tab">Viewings</a></li>
+                            <li><a href="#documents" data-toggle="tab">Documents</a></li>
+                            <li><a href="#history" data-toggle="tab">History</a></li>
+                        </ul>
+                        <div class="property-list">
+                            <div class="tab-content ">
+                                <div class="tab-pane active" id="notes">
+                                    <div class="tab-header">
+                                        <h4>Put Note</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form id="notes-form" class="form clearfix">
+                                            <div class="form-group">
+                                                <textarea rows="4" class="form-control" id="note" placeholder=""></textarea>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add your note</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                            <li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="viewings">
+                                    <div class="tab-header">
+                                        <h4>Put Viewing</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form id="viewings-form" class="form-horizontal clearfix">
+                                            <div class="form-group">
+                                                <label for="viewingsListing" class="col-sm-5 control-label">Listing</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsListing">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsDate" class="col-sm-5 control-label">Date</label>
+                                                <div class="col-sm-7">
+                                                    <input type="date" class="form-control" id="viewingsDate" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsTime" class="col-sm-5 control-label">Time</label>
+                                                <div class="col-sm-7">
+                                                    <input type="time" class="form-control" id="viewingsTime" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsAgent" class="col-sm-5 control-label">Agent</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsAgent">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsStatus" class="col-sm-5 control-label">Status</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsStatus">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsName" class="col-sm-5 control-label">Client Name</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control" id="viewingsName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsRequest" class="col-sm-5 control-label">Request</label>
+                                                <div class="col-sm-7">
+                                                    <select class="form-control" id="viewingsRequest">
+                                                        <option>Select</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="viewingsNote" class="col-sm-5 control-label">Note</label>
+                                                <div class="col-sm-7">
+                                                    <textarea rows="2" class="form-control" id="viewingsNote" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Viewing</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul class="viewings-list">
+                                            <li>
+                                                <div>
+                                                    <p><span>Date: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p><span>Date & Time: </span>20/13/2018</p>
+                                                    <p><span>Time: </span>02:20 PM<p>
+                                                    <p><span>Agent: </span>Angelica Gozum</p>
+                                                    <p><span>Status: </span>Scheduled</p>
+                                                    <p><span>Client Name: </span>Abdul Aziz</p>
+                                                    <p><span>Request: </span>Waqas Ahmed</p>
+                                                    <p><span>Note: </span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="documents">
+                                    <div class="tab-header clearfix">
+                                        <h4>Put Document</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                        <form >
+                                            <div class="form-group">
+                                                <label for="documentsFile" class=" control-label">Document</label>
+                                                <div class="">
+                                                    <input type="file" class="form-control" id="documentsFile" placeholder="">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn col-md-12">Click to add Document</button>
+                                        </form>
+                                    </div>
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>Document 1</li>
+                                            <li>Document 2</li>
+                                            <li>Document 3</li>
+                                            <li>Document 4</li>
+                                            <li>Document 5</li>
+                                            <li>Document 6</li>
+                                            <li>Document 7</li>
+                                            <li>Document 8</li>
+                                            <li>Document 9</li>
+                                            <li>Document 10</li>
+                                            <li>Document 11</li>
+                                            <li>Document 12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="history">
+                                    <div class="tab-header">
+                                        <h4>History List</h4>
+                                        <a href="#" class="pull-right"><h4></h4></a>
+                                    </div>
+
+                                    <div class="tab-row">
+                                        <ul>
+                                            <li>History 1</li>
+                                            <li>History 2</li>
+                                            <li>History 3</li>
+                                            <li>History 4</li>
+                                            <li>History 5</li>
+                                            <li>History 6</li>
+                                            <li>History 7</li>
+                                            <li>History 8</li>
+                                            <li>History 9</li>
+                                            <li>History 10</li>
+                                            <li>History 11</li>
+                                            <li>History12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /Right part-->
+
+            </div>
+
+        </div><!-- /Top Contact Block -->
+
+
+        <div class="container-fluid  bottom-rentals-content clearfix"><!--    Bottom Rentals Block      -->
+            <div id="listings-tab" >
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a  href="#current-listings" data-toggle="tab">Current Leads</a>
+                    </li>
+                    <!--
+                    <li><a href="#archived-listings" data-toggle="tab">Archived Leads<span class="badge">42</span></a>
+                    </li>
+                    <li><a href="#pending-listings" data-toggle="tab">Pending Leads</a>
+                    </li>
+                    -->
+                </ul>
+
+                <div class="tab-content ">
+                    <div class="tab-pane active" id="current-listings">
+                        <div class="pane-header container-fluid clearfix">
+                            <!--<form class="form-horizontal" id="filterBlock">
+                                <div>
+
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterAgentListings" class="control-label col-sm-5">Agent Listings</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterAgentListings">
+                                                <option>Agent 1</option>
+                                                <option>Agent 2</option>
+                                                <option>Agent 3</option>
+                                                <option>Agent 4</option>
+                                                <option>Agent 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterCategoryDist" class="control-label col-sm-5">Category Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterCategoryDist">
+                                                <option>Category 1</option>
+                                                <option>Category 2</option>
+                                                <option>Category 3</option>
+                                                <option>Category 4</option>
+                                                <option>Category 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterStatusDist" class="control-label col-sm-5">Status Dist.</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterStatusDist">
+                                                <option>Status 1</option>
+                                                <option>Status 2</option>
+                                                <option>Status 3</option>
+                                                <option>Status 4</option>
+                                                <option>Status 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterPriceRange" class="control-label col-sm-5">Price Range</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterPriceRange" type="text" class="span2 " value="" style="width: 100%;" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                                            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" rel="stylesheet">
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+                                            <script>var slider = new Slider('#filterPriceRange', {});</script>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterLastUpdated" class="control-label col-sm-5">Last Updated</label>
+                                        <div class=" col-sm-7">
+                                            <input id="filterLastUpdated" class="form-control" type="date">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="filterTopLocations" class="control-label col-sm-5">Top Locations</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control" id="filterTopLocations">
+                                                <option>Top Locations 1</option>
+                                                <option>Top Locations 2</option>
+                                                <option>Top Locations 3</option>
+                                                <option>Top Locations 4</option>
+                                                <option>Top Locations 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>-->
+                        </div>
+                        <div id="customizing-block" class="container-fluid clearfix">
+                            <div class="button-block first-block">
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-check-circle"></i> Published</a>
+                                    <a class="btn red-button" href="#"><i class="fa fa-times-circle"></i> Unpublished</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-cloud-download"></i> Share Options</a>
+                                    <a class="btn" href="#"><i class="fa fa-search"></i> Advanced Search</a>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a class="btn" href="#"><i class="fa fa-mobile"></i> Send SMS</a>
+                                    <a class="btn" href="#"><i class="fa fa-th-list"></i> Bulk Update</a>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="button-block second-block pull-right">
+                                <a class="btn green-button" href="#">Actions<i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">View <i class="fa fa-angle-down"></i></a>
+                                <a class="btn green-button" href="#">Columns<i class="fa fa-angle-down"></i> </a>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- BIG listings Table-->
+                        <div style="overflow-x: auto; padding-right: 0; padding-left: 0;" class=" container-fluid clearfix">
+                            <table id="listings_row" class="table table-bordered" align="center" >
+                                <thead align="left" class="header-table">
+                                <tr role="row">
+                                    <th><input style="width:15px; margin-right:-10px;" onclick="toggleChecked(this.checked)" id="check_all_checkboxes" value="" type="checkbox"></th>
+                                    <th><div style="min-width: 8px;"></div></th>
+
+                                    <th><div>Ref</div></th>
+                                    <th><div>First Name</div></th>
+                                    <th><div>Last Name</div></th>
+                                    <th><div>Home Country</div></th>
+                                    <th><div>Personal Phone</div></th>
+                                    <th><div>Personal Mobile</div></th>
+                                    <th><div>Personal Email</div></th>
+                                    <th><div>Assigned To</div></th>
+                                    <th><div>Updated</div></th>
+                                    <th><div>Other Phone</div></th>
+                                    <th><div>Other Mobile</div></th>
+                                    <th><div>Work Fax</div></th>
+                                    <th><div>Other Fax</div></th>
+                                    <th><div>Other Email</div></th>
+                                    <th><div>Website</div></th>
+                                    <th><div>Facebook</div></th>
+                                    <th><div>Twitter</div></th>
+                                    <th><div>LinkedIn</div></th>
+                                    <th><div>Google+</div></th>
+                                    <th><div>Instagram</div></th>
+                                    <th><div>WeChat</div></th>
+                                    <th><div>Skype</div></th>
+                                    <th><div></div></th>
+                                    <th><div>Company PO Box</div></th>
+                                    <th><div>Company Address 1</div></th>
+                                    <th><div>Company Address 2</div></th>
+                                    <th><div>Company City</div></th>
+                                    <th><div>Company State</div></th>
+                                    <th><div>Company Country</div></th>
+                                    <th><div>Company Zip Code</div></th>
+                                    <th><div>Native Language</div></th>
+                                    <th><div>Second Language</div></th>
+                                    <th><div>Contact Source</div></th>
+                                    <th><div>Contact Type</div></th>
+                                    <th><div>Created Date</div></th>
+                                    <th><div>Created By</div></th>
+                                </tr>
+                                </thead>
+
+                                <thead id="searchbox">
+                                <tr class="search_box">
+                                    <form id="ContactForm" class="form-inline">
+                                        <td><a id="reset_filter" style="display:none;" href="#"><i class="fa fa-redo"></i></a></td>
+                                        <td></td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactRef" type="text" class="form-control" placeholder="Min 3 chars">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactFirstName" type="text" class="form-control" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactLastName" type="text" class="form-control" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactHomeCountry" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactPersonalPhone" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactPersonalMobile" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactPersonalEmail" class="form-control" type="text" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactAssignedTo" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactUpdated" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactOtherPhone" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactOtherMobile" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactWorkFax" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactOtherFax" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactOtherEmail" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactWebsite" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactFacebook" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactTwitter" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactLinkedIn" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactGoogle" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactInstagram" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactWeChat" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactSkype" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactField" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyPOBox" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyAddress1" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyAddress2" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyCity" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyState" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyCountry" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div  class="form-group">
+                                                <input id="columnContactCompanyZipCode" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactNativeLanguage" type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="columnContactSecondLanguage" type="text" class="form-control">
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactSource" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="7 days">7 days</option>
+                                                    <option value="Abu Dhabi week">Abu Dhabi week</option>
+                                                    <option value="abudhabi.classonet.com">abudhabi.classonet.com</option>
+                                                    <option value="Agent">Agent</option>
+                                                    <option value="Agent External">Agent External</option>
+                                                    <option value="Agent Internal">Agent Internal</option>
+                                                    <option value="Al Ayam">Al Ayam</option>
+                                                    <option value="Al Bayan">Al Bayan</option>
+                                                    <option value="Al Futtaim">Al Futtaim</option>
+                                                    <option value="Al Ittihad News paper">Al Ittihad News paper</option>
+                                                    <option value="Al Khaleej">Al Khaleej</option>
+                                                    <option value="Al Rai">Al Rai</option>
+                                                    <option value="AL Watan">AL Watan</option>
+                                                    <option value="Arab Times">Arab Times</option>
+                                                    <option value="Asharq Al Awsat">Asharq Al Awsat</option>
+                                                    <option value="Bank Referral">Bank Referral</option>
+                                                    <option value="Bayut.com">Bayut.com</option>
+                                                    <option value="Blackberry SMS">Blackberry SMS</option>
+                                                    <option value="Business Card">Business Card</option>
+                                                    <option value="Client referral">Client referral</option>
+                                                    <option value="Cold Call">Cold Call</option>
+                                                    <option value="Colours TV">Colours TV</option>
+                                                    <option value="Company Email">Company Email</option>
+                                                    <option value="Database">Database</option>
+                                                    <option value="Developer">Developer</option>
+                                                    <option value="Direct Call">Direct Call</option>
+                                                    <option value="Direct Client">Direct Client</option>
+                                                    <option value="Drive around">Drive around</option>
+                                                    <option value="Dubizzle Feature">Dubizzle Feature</option>
+                                                    <option value="Dubizzle.com">Dubizzle.com</option>
+                                                    <option value="Dzooom.com">Dzooom.com</option>
+                                                    <option value="Email campaign">Email campaign</option>
+                                                    <option value="Ertebat">Ertebat</option>
+                                                    <option value="Exhibition Stand">Exhibition Stand</option>
+                                                    <option value="Existing client">Existing client</option>
+                                                    <option value="EzEstate">EzEstate</option>
+                                                    <option value="EzHeights.com">EzHeights.com</option>
+                                                    <option value="Facebook">Facebook</option>
+                                                    <option value="Flyers">Flyers</option>
+                                                    <option value="Forbes Mailer">Forbes Mailer</option>
+                                                    <option value="Friend or Relative">Friend or Relative</option>
+                                                    <option value="Google">Google</option>
+                                                    <option value="Gulf Daily News">Gulf Daily News</option>
+                                                    <option value="Gulf News">Gulf News</option>
+                                                    <option value="Gulf News Mailer">Gulf News Mailer</option>
+                                                    <option value="Gulf Newspaper Freehold">Gulf Newspaper Freehold</option>
+                                                    <option value="Gulf Newspaper Residential">Gulf Newspaper Residential</option>
+                                                    <option value="Gulf Times">Gulf Times</option>
+                                                    <option value="Gulfnews Freehold">Gulfnews Freehold</option>
+                                                    <option value="Gulfpropertyportal.com">Gulfpropertyportal.com</option>
+                                                    <option value="Hut.ae">Hut.ae</option>
+                                                    <option value="Instagram">Instagram</option>
+                                                    <option value="JustProperty.com">JustProperty.com</option>
+                                                    <option value="JustRentals.com">JustRentals.com</option>
+                                                    <option value="JUWAI">JUWAI</option>
+                                                    <option value="Khaleej Times">Khaleej Times</option>
+                                                    <option value="LinkedIn">LinkedIn</option>
+                                                    <option value="Listanza">Listanza</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactType" class="form-control">
+                                                    <option>Tenant</option>
+                                                    <option>Buyer</option>
+                                                    <option>Seller</option>
+                                                    <option>Investor</option>
+                                                    <option>Status type 5</option>
+                                                    <option>Status type 6</option>
+                                                    <option>Status type 7</option>
+                                                    <option>Status type 9</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactCreatedDate" class="form-control" style="font-family: FontAwesome, sans-serif;">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="0" style="color: #6eb52c;">&#xf106</option>
+                                                    <option value="1" style="color: #6eb52c;">&#xf107</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="columnContactCreatedBy" class="form-control">
+                                                    <option value="" selected="">Select</option>
+                                                    <option value="1456980">Abduvoris Abdukhalilov</option>
+                                                    <option value="1456135">Ahmed Teddy Samir</option>
+                                                    <option value="1457128">Amelia Quaye</option>
+                                                    <option value="1459191">Andreas  Malmestedt</option>
+                                                    <option value="14227">Angelica Gozum</option>
+                                                    <option value="1459851">Anna Szabunia</option>
+                                                    <option value="1458061">Arnd Hannecke</option>
+                                                    <option value="1466578">Arslan Afzal</option>
+                                                    <option value="1459843">Ashley Brown</option>
+                                                    <option value="1457138">Benjamin Ray</option>
+                                                    <option value="1466188">Bilal Zafar</option>
+                                                    <option value="1453866">Camelia Savoye</option>
+                                                    <option value="1459301">Charu Gupta</option>
+                                                    <option value="775">Christoph Engels</option>
+                                                    <option value="1464877">Collins Kodjou</option>
+                                                    <option value="1467305">Demetrios Nikolaou</option>
+                                                    <option value="1462306">Deoclecio Junior</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                    </form>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr id="1576257625436385" class="">
+                                    <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                    <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                    <td class="cell-in-row">KI-O-39661</td>
+                                    <td class="cell-in-row">Mohamed</td>
+                                    <td class="cell-in-row">Rasheedi</td>
+                                    <td class="cell-in-row">United Arab Emirates</td>
+                                    <td class="cell-in-row">+971 0567777770</td>
+                                    <td class="cell-in-row">+971 50 502 8575</td>
+                                    <td class="cell-in-row">karen@alphabusinesscenter.com</td>
+                                    <td class="cell-in-row">Kensington C AF</td>
+                                    <td class="cell-in-row">15-02-2018</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">English</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">- -</td>
+                                    <td class="cell-in-row">Tenant</td>
+                                    <td class="cell-in-row">25-05-2017</td>
+                                    <td class="cell-in-row">Hassan Akhtar</td>
+                                </tr>
+                                    <tr id="1576257625436386" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row">KI-O-39661</td>
+                                        <td class="cell-in-row">Mohamed</td>
+                                        <td class="cell-in-row">Rasheedi</td>
+                                        <td class="cell-in-row">United Arab Emirates</td>
+                                        <td class="cell-in-row">+971 0567777770</td>
+                                        <td class="cell-in-row">+971 50 502 8575</td>
+                                        <td class="cell-in-row">karen@alphabusinesscenter.com</td>
+                                        <td class="cell-in-row">Kensington C AF</td>
+                                        <td class="cell-in-row">15-02-2018</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">English</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Tenant</td>
+                                        <td class="cell-in-row">25-05-2017</td>
+                                        <td class="cell-in-row">Hassan Akhtar</td>
+                                    </tr>
+                                    <tr id="1576257625436387" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row">KI-O-39661</td>
+                                        <td class="cell-in-row">Mohamed</td>
+                                        <td class="cell-in-row">Rasheedi</td>
+                                        <td class="cell-in-row">United Arab Emirates</td>
+                                        <td class="cell-in-row">+971 0567777770</td>
+                                        <td class="cell-in-row">+971 50 502 8575</td>
+                                        <td class="cell-in-row">karen@alphabusinesscenter.com</td>
+                                        <td class="cell-in-row">Kensington C AF</td>
+                                        <td class="cell-in-row">15-02-2018</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">English</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Tenant</td>
+                                        <td class="cell-in-row">25-05-2017</td>
+                                        <td class="cell-in-row">Hassan Akhtar</td>
+                                    </tr>
+                                    <tr id="1576257625436388" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row">KI-O-39661</td>
+                                        <td class="cell-in-row">Mohamed</td>
+                                        <td class="cell-in-row">Rasheedi</td>
+                                        <td class="cell-in-row">United Arab Emirates</td>
+                                        <td class="cell-in-row">+971 0567777770</td>
+                                        <td class="cell-in-row">+971 50 502 8575</td>
+                                        <td class="cell-in-row">karen@alphabusinesscenter.com</td>
+                                        <td class="cell-in-row">Kensington C AF</td>
+                                        <td class="cell-in-row">15-02-2018</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">English</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Tenant</td>
+                                        <td class="cell-in-row">25-05-2017</td>
+                                        <td class="cell-in-row">Hassan Akhtar</td>
+                                    </tr>
+                                    <tr id="1576257625436389" class="">
+                                        <td class="cell-in-row"><div><input type="checkbox"></div></td>
+                                        <td class="cell-in-row"><a href="#" class="scroll-up"><i class="fa fa-eye"></i></a></td>
+                                        <td class="cell-in-row">KI-O-39661</td>
+                                        <td class="cell-in-row">Mohamed</td>
+                                        <td class="cell-in-row">Rasheedi</td>
+                                        <td class="cell-in-row">United Arab Emirates</td>
+                                        <td class="cell-in-row">+971 0567777770</td>
+                                        <td class="cell-in-row">+971 50 502 8575</td>
+                                        <td class="cell-in-row">karen@alphabusinesscenter.com</td>
+                                        <td class="cell-in-row">Kensington C AF</td>
+                                        <td class="cell-in-row">15-02-2018</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">English</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">- -</td>
+                                        <td class="cell-in-row">Tenant</td>
+                                        <td class="cell-in-row">25-05-2017</td>
+                                        <td class="cell-in-row">Hassan Akhtar</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="page-selector">
+
+                            <nav aria-label="...">
+                                <div class="select-page">
+                                    <label for="filterPageCount" class="col-sm-6">Show</label>
+
+                                    <select class="form-control" id="filterPageCount">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                    </select>
+
+                                </div>
+                                <ul class="pagination pull-right">
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                        <!-- /BIG listings Table-->
+                    </div>
+                    <!--
+                    <div class="tab-pane" id="archived-listings">
+                        <p style="font-size: 56px; color: red;">Put The Archived Listings Table HERE</p>
+                    </div>
+                    <div class="tab-pane" id="pending-listings">
+                        <p style="font-size: 56px; color: red;">Put The Pending Listings Table HERE</p>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+        </div><!--    /Bottom Rentals Block      -->
+
+
+
+    </div><!---     /Content       -->
+
+    <div class="footer">
+        <p>
+            <span>Copyright © 2014-2017 Est8World.</span> All rights reserved.
+        </p>
+    </div>
+
+    <link href="css/toggle-menu.css" rel="stylesheet">
+    <script src="js/menu.js" type="text/javascript"></script>
+    <script src="js/listings.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myCarousel").carousel();
+
+        });
+
+    </script>
+
+<!--
+    <script>
+        $("#inputLeadColorCode").spectrum({
+            showPaletteOnly: true,
+            color: '#fff',
+            showButtons: false,
+            //disabled: true,
+            hideAfterPaletteSelect:true,
+            palette: [
+                ['#EE1C25', '#0DB24C', '#00ADEF']
+            ]
+        });
+    </script>
+    -->
+</div>
+</body>
+</html>

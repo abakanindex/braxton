@@ -1,0 +1,129 @@
+{
+  "name": "yiisoft/yii2-app-basic",
+  "description": "Yii 2 Basic Project Template",
+  "keywords": [
+    "yii2",
+    "framework",
+    "basic",
+    "project template"
+  ],
+  "homepage": "http://www.yiiframework.com/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1",
+    "yiisoft/yii2": "~2.0.5",
+    "yiisoft/yii2-bootstrap": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "~2.0.0",
+    "dmstr/yii2-adminlte-asset": "2.4.3",
+    "roopz/yii2-imap": "dev-master",
+    "blumster/yii2-gii-migration-designer": "0.2.0",
+    "costa-rico/yii2-images": "~1.0.5",
+    "kartik-v/yii2-widget-datepicker": "@dev",
+    "2amigos/yii2-date-picker-widget": "~1.0",
+    "yiisoft/yii2-jui": "^2.0@dev",
+    "mihaildev/yii2-ckeditor": "*",
+    "mihaildev/yii2-elfinder": "*",
+    "udokmeci/yii2-phone-validator": "1.0.1",
+    "kartik-v/yii2-widget-select2": "@dev",
+    "borales/yii2-phone-input": "*",
+    "wbraganca/yii2-dynamicform": "*",
+    "2amigos/yii2-file-upload-widget": "~1.0",
+    "kartik-v/yii2-widget-fileinput": "@dev",
+    "2amigos/yii2-gallery-widget": "~1.0",
+    "vova07/yii2-imperavi-widget": "~1.2",
+    "edofre/yii2-fullcalendar": "V1.0.10",
+    "kartik-v/yii2-widget-datetimepicker": "*",
+    "developeruz/yii2-db-rbac": "*",
+    "rmrevin/yii2-fontawesome": "~2.17",
+    "execut/yii2-widget-bootstraptreeview": "dev-master",
+    "yurkinx/yii2-image": "dev-master",
+    "tpmanc/yii2-imagick": "*",
+    "2amigos/yii2-chartjs-widget": "~2.0",
+    "kartik-v/yii2-date-range": "*",
+    "kartik-v/yii2-sortable": "*",
+    "kriansa/h2p": "dev-master",
+    "kartik-v/yii2-widget-spinner": "@dev",
+    "dixonstarter/yii2-pdfprint": "*",
+    "kartik-v/yii2-grid": "@dev",
+    "kartik-v/yii2-editable": "*",
+    "codeonyii/yii2-at-least-validator": "dev-master",
+    "bower-asset/bootbox": "*",
+    "loveorigami/yii2-modal-ajax": "@dev",
+    "darkcs/yii2-infinite-scroll": "*",
+    "karataserkan/yii2-multi-dataprovider": "dev-master",
+    "camohob/yii2-imap": "*",
+    "electrolinux/phpquery": "dev-master",
+    "machour/yii2-notifications": "*",
+    "nizsheanez/yii2-asset-converter": "1.*",
+    "pudinglabs/yii2-bootstrap-tags-input": "*",
+    "kartik-v/yii2-mpdf": "*",
+    "mpdf/mpdf":"*",
+    "kartik-v/yii2-checkbox-x": "@dev",
+    "codemix/yii2-excelexport": "dev-master",
+    "yii2tech/spreadsheet": "*"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "yiisoft/yii2-faker": "~2.0.0",
+    "codeception/base": "^2.2.3",
+    "codeception/verify": "~0.3.1",
+    "codeception/specify": "~0.4.3"
+  },
+  "config": {
+    "bin-dir": "bin",
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-update-cmd": [
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "runtime": "0777",
+          "web/assets": "0777",
+          "yii": "0755"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config/web.php"
+      ]
+    },
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

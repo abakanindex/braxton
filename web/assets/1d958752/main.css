@@ -1,0 +1,12 @@
+body > div.container {
+    width: 100%;
+}
+
+form#migration-designer-generator > div.row > div.col-lg-8.col-md-10 {
+    float: none;
+    width: 100%;
+}
+
+table.table.collapse.in {
+    display: table !important;
+}
